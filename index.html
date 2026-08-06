@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio de Vernens Charles — Développeur web junior en stage." />
+  <title>Portfolio — Vernens Charles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <canvas id="stars" class="stars"></canvas>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grain"></div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="logo">
+        <span class="logo-mark">VC</span>
+        <span class="logo-text">Vernens Charles</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" data-i18n="nav.about">À propos</a>
+        <a href="#experience" data-i18n="nav.experience">Expérience</a>
+        <a href="#projects" data-i18n="nav.projects">Projets</a>
+        <a href="#skills" data-i18n="nav.skills">Compétences</a>
+        <a href="#contact" class="nav-cta" data-i18n="nav.contact">Me contacter</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre" data-i18n-aria="nav.themeDark">
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+        </button>
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Passer en anglais">EN</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+      <!-- ===== HERO ===== -->
+      <section id="hero" class="hero">
+          <div class="hero-bg" aria-hidden="true">
+              <div class="hero-orb hero-orb-1"></div>
+              <div class="hero-orb hero-orb-2"></div>
+              <div class="hero-orb hero-orb-3"></div>
+          </div>
+          <div class="container hero-grid">
+              <div class="hero-content reveal">
+                  <div class="hero-rail" aria-hidden="true"></div>
+                  <span class="eyebrow" data-i18n="hero.eyebrow">Stage · Strateginc Groupe Financier</span>
+                  <h1 data-i18n-html="hero.title">
+                      Bonjour, je suis <span class="accent">Vernens Charles</span>.<br />
+                      Développeur web junior<span class="accent-dot">.</span>
+                  </h1>
+                  <p class="lead" data-i18n-html="hero.lead">
+                      Étudiant en <strong>développement web</strong> à l'<strong>Université de Sherbrooke</strong> (Québec).
+                      En stage chez <strong>Strateginc Groupe Financier</strong>, j'automatise leurs processus Microsoft
+                      et je construis des projets concrets pour répondre à des problèmes réels.
+                  </p>
+                  <div class="hero-actions">
+                      <a href="#projects" class="btn btn-primary" data-i18n="hero.btnProjects">Voir mes projets</a>
+                      <a href="#contact" class="btn btn-ghost" data-i18n="hero.btnContact">Me contacter →</a>
+                  </div>
+                  <ul class="hero-meta">
+                      <li class="stat-card"><strong>3</strong><span data-i18n="hero.metaProjects">projets réalisés</span></li>
+                      <li class="stat-card"><strong>8+</strong><span data-i18n="hero.metaTech">technologies maîtrisées</span></li>
+                      <li class="stat-card"><strong>2026</strong><span data-i18n="hero.metaYear">année en cours</span></li>
+                  </ul>
+              </div>
+
+              <div class="hero-visual reveal" data-reveal="fade-left">
+                  <div class="portrait-wrap" id="portrait">
+                      <div class="portrait-ring"></div>
+                      <div class="portrait">
+                          <img src="assets/photo-profil.png"
+                               alt="Photo de profil de Vernens Charles"
+                               class="portrait-photo"
+                               data-i18n-alt="hero.photoAlt"
+                               width="360"
+                               height="450" />
+                          <div class="portrait-badge">
+                              <span class="dot"></span> <span data-i18n="hero.badge">Stage en cours</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <a href="#about" class="scroll-indicator" aria-label="Faire défiler" data-i18n-aria="hero.scroll">
+              <span></span>
+          </a>
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section id="about" class="section">
+          <div class="container">
+              <div class="section-header reveal">
+                  <span class="section-num">01</span>
+                  <h2 data-i18n="about.title">À propos de moi</h2>
+                  <p class="section-sub" data-i18n="about.sub">Un peu de contexte sur mon parcours et ce qui m'anime.</p>
+              </div>
+
+              <div class="about-grid">
+                  <div class="about-text reveal">
+                      <p data-i18n-html="about.p1">
+                          Je suis actuellement étudiant en <strong>développement web</strong> à l'<strong>Université de Sherbrooke</strong> (Québec),
+                          où je poursuis un <strong>baccalauréat en informatique</strong>.
+                          L'informatique, c'est ce que j'ai toujours voulu faire : comprendre comment les choses fonctionnent et leur donner vie à travers le code.
+                      </p>
+                      <p data-i18n="about.p2">
+                          Au-delà des études, je consacre du temps à apprendre par la pratique : projets personnels,
+                          travail en équipe et résolution de problèmes concrets. Mon objectif est d'allier théorie solide et savoir-faire opérationnel.
+                      </p>
+                      <p data-i18n-html="about.p3">
+                          En dehors du travail et des études, je m'intéresse particulièrement à la <strong>musculation</strong> et au <strong>basket</strong>,
+                          ce qui m'a inspiré dans le développement de projets liés au suivi des performances sportives.
+                          Je suis également passionné par la musique, la création de contenu numérique et les projets personnels qui me permettent d'apprendre continuellement.
+                      </p>
+                  </div>
+
+                  <aside class="about-card reveal" data-reveal="fade-left">
+                      <h3 data-i18n="about.infoTitle">Informations</h3>
+                      <dl>
+                          <div><dt data-i18n="about.locationLabel">Localisation</dt><dd data-i18n="about.locationValue">Sherbrooke, Québec</dd></div>
+                          <div><dt data-i18n="about.emailLabel">Email</dt><dd><a href="mailto:chav1301@usherbrooke.ca">chav1301@usherbrooke.ca</a></dd></div>
+                          <div><dt data-i18n="about.studiesLabel">Études</dt><dd data-i18n="about.studiesValue">Bacc. informatique · Univ. de Sherbrooke</dd></div>
+                          <div><dt data-i18n="about.languagesLabel">Langues</dt><dd data-i18n="about.languagesValue">Créole, Français, Anglais</dd></div>
+                      </dl>
+                  </aside>
+              </div>
+          </div>
+      </section>
+
+      <!-- ===== EXPERIENCE ===== -->
+      <section id="experience" class="section section-alt">
+          <div class="container">
+              <div class="section-header reveal">
+                  <span class="section-num">02</span>
+                  <h2 data-i18n="experience.title">Expérience &amp; Parcours</h2>
+                  <p class="section-sub" data-i18n="experience.sub">Mes études, stages et engagements.</p>
+              </div>
+
+              <ol class="timeline">
+                  <li class="timeline-item reveal">
+                      <div class="timeline-date" data-i18n="exp1.date">En cours</div>
+                      <div class="timeline-content">
+                          <h3 data-i18n="exp1.title">Baccalauréat en informatique</h3>
+                          <p class="timeline-org" data-i18n="exp1.org">Université de Sherbrooke, Québec</p>
+                          <p data-i18n="exp1.desc">Spécialisation en développement web. Cours principaux : programmation orientée objet, structures de données et algorithmes, bases de données.</p>
+                      </div>
+                  </li>
+                  <li class="timeline-item reveal">
+                      <div class="timeline-date" data-i18n="exp2.date">Mai — Août 2026</div>
+                      <div class="timeline-content">
+                          <h3 data-i18n="exp2.title">Stage — Automatisation Microsoft</h3>
+                          <p class="timeline-org" data-i18n="exp2.org">Strateginc Groupe Financier, Saint-Bruno-de-Montarville</p>
+                          <p data-i18n="exp2.desc">Automatisation des processus métier de l'entreprise via l'écosystème Microsoft. Analyse des flux existants, conception de solutions d'automatisation et amélioration de l'efficacité opérationnelle.</p>
+                      </div>
+                  </li>
+                  <li class="timeline-item reveal">
+                      <div class="timeline-date" data-i18n="exp3.date">Janv. — Avr. 2026</div>
+                      <div class="timeline-content">
+                          <h3 data-i18n="exp3.title">Tuteur — Centre d'aide en informatique</h3>
+                          <p class="timeline-org" data-i18n="exp3.org">Centre d'entraide à l'étude en informatique · Université de Sherbrooke</p>
+                          <p data-i18n="exp3.desc">Accompagnement d'étudiants en programmation et concepts informatiques. Formation institutionnelle complétée. Attestation de participation étudiante 2026.</p>
+                          <p class="timeline-extra">
+                              <a href="assets/attestation-tuteur-udes.png" target="_blank" rel="noopener noreferrer" data-i18n="exp3.cert">Voir l'attestation →</a>
+                          </p>
+                      </div>
+                  </li>
+                  <li class="timeline-item reveal">
+                      <div class="timeline-date" data-i18n="exp4.date">Sept. — Déc. 2025</div>
+                      <div class="timeline-content">
+                          <h3 data-i18n="exp4.title">Stage — Amélioration UX web</h3>
+                          <p class="timeline-org" data-i18n="exp4.org">Fundación Biosfera</p>
+                          <p data-i18n="exp4.desc">Amélioration de l'expérience utilisateur (UX) du site web : audit de l'interface, analyse des parcours utilisateurs et recommandations concrètes pour moderniser le site et faciliter les collaborations internationales.</p>
+                      </div>
+                  </li>
+              </ol>
+          </div>
+      </section>
+
+      <!-- ===== PROJECTS ===== -->
+      <section id="projects" class="section">
+          <div class="container">
+              <div class="section-header reveal">
+                  <span class="section-num">03</span>
+                  <h2 data-i18n="projects.title">Projets</h2>
+                  <p class="section-sub" data-i18n="projects.sub">Quelques réalisations qui illustrent ce que je sais faire.</p>
+              </div>
+
+              <div class="projects-grid">
+                  <article class="project-card reveal">
+                      <div class="project-thumb">
+                          <img src="assets/projet-ai-career.png"
+                               alt="Capture d'écran du tableau de bord AI Career"
+                               data-i18n-alt="proj3.alt"
+                               loading="lazy" />
+                      </div>
+                      <div class="project-body">
+                          <span class="project-tag" data-i18n="proj3.tag">Personnel · Août 2026</span>
+                          <h3>AI Career</h3>
+                          <p data-i18n="proj3.desc">
+                              Plateforme web destinée aux étudiants pour optimiser leurs candidatures de stage.
+                              Elle permet d'analyser et d'adapter un CV selon une offre, de générer des lettres
+                              de motivation ciblées, et de suivre les indicateurs clés (score ATS, taux de correspondance).
+                          </p>
+                          <ul class="chip-list">
+                              <li>React</li>
+                              <li>TypeScript</li>
+                              <li>Node.js</li>
+                              <li>UI/UX</li>
+                          </ul>
+                          <div class="project-links">
+                              <a href="https://github.com/HaitianBoy-509/Ai-Career_Assistant" target="_blank" rel="noopener noreferrer" data-i18n="proj.link">Voir sur GitHub →</a>
+                          </div>
+                      </div>
+                  </article>
+
+                  <article class="project-card reveal">
+                      <div class="project-thumb">
+                          <img src="assets/projet-habit-tracker.png"
+                               alt="Capture d'écran de l'application Habit Tracker"
+                               data-i18n-alt="proj1.alt"
+                               loading="lazy" />
+                      </div>
+                      <div class="project-body">
+                          <span class="project-tag" data-i18n="proj1.tag">Personnel · Mars 2026</span>
+                          <h3>Habit Tracker</h3>
+                          <p data-i18n="proj1.desc">
+                              Tracker d'habitudes minimaliste pour rester constant et discipliné.
+                              Design épuré, suivi quotidien et gamification (streaks, points, roue de récompenses).
+                              Version démo publiée sur GitHub — version finale en cours de développement.
+                          </p>
+                          <ul class="chip-list">
+                              <li>UI/UX</li>
+                              <li>Développement mobile</li>
+                              <li>Gamification</li>
+                          </ul>
+                          <div class="project-links">
+                              <a href="https://github.com/HaitianBoy-509/HabitTrackerApp" target="_blank" rel="noopener noreferrer" data-i18n="proj.link">Voir sur GitHub →</a>
+                          </div>
+                      </div>
+                  </article>
+
+                  <article class="project-card reveal">
+                      <div class="project-thumb">
+                          <img src="assets/projet-workout-calculator.png"
+                               alt="Capture d'écran de l'application Workout Calculator"
+                               data-i18n-alt="proj2.alt"
+                               loading="lazy" />
+                      </div>
+                      <div class="project-body">
+                          <span class="project-tag" data-i18n="proj2.tag">Personnel · Avril 2026</span>
+                          <h3>Workout Calculator</h3>
+                          <p data-i18n="proj2.desc">
+                              Application mobile fitness développée avec .NET MAUI.
+                              Calcul et structuration de séances selon des objectifs précis — force, hypertrophie ou endurance —
+                              avec timer de séance et plans d'entraînement détaillés.
+                              Version démo publiée sur GitHub — version finale en cours de développement.
+                          </p>
+                          <ul class="chip-list">
+                              <li>.NET MAUI</li>
+                              <li>C#</li>
+                              <li>Stockage local</li>
+                              <li>UI/UX</li>
+                          </ul>
+                          <div class="project-links">
+                              <a href="https://github.com/HaitianBoy-509/WorkoutCalculator" target="_blank" rel="noopener noreferrer" data-i18n="proj.link">Voir sur GitHub →</a>
+                          </div>
+                      </div>
+                  </article>
+              </div>
+          </div>
+      </section>
+
+      <!-- ===== SKILLS ===== -->
+      <section id="skills" class="section section-alt">
+          <div class="container">
+              <div class="section-header reveal">
+                  <span class="section-num">04</span>
+                  <h2 data-i18n="skills.title">Compétences</h2>
+                  <p class="section-sub" data-i18n="skills.sub">Outils et savoir-faire que j'utilise au quotidien.</p>
+              </div>
+
+              <div class="skills-grid">
+                  <div class="skill-group reveal">
+                      <h3 data-i18n="skills.technical">Techniques</h3>
+                      <ul class="skill-list">
+                          <li><span>HTML &amp; CSS</span><div class="bar"><i style="--lvl:85%"></i></div></li>
+                          <li><span>JavaScript</span><div class="bar"><i style="--lvl:75%"></i></div></li>
+                          <li><span>C# &amp; .NET MAUI</span><div class="bar"><i style="--lvl:80%"></i></div></li>
+                          <li><span>SQL</span><div class="bar"><i style="--lvl:70%"></i></div></li>
+                      </ul>
+                  </div>
+
+                  <div class="skill-group reveal">
+                      <h3 data-i18n="skills.tools">Outils</h3>
+                      <ul class="skill-list">
+                          <li><span>Git &amp; GitHub</span><div class="bar"><i style="--lvl:80%"></i></div></li>
+                          <li><span>Power Automate</span><div class="bar"><i style="--lvl:75%"></i></div></li>
+                          <li><span>Microsoft 365</span><div class="bar"><i style="--lvl:80%"></i></div></li>
+                          <li><span>VS Code</span><div class="bar"><i style="--lvl:85%"></i></div></li>
+                      </ul>
+                  </div>
+
+                  <div class="skill-group reveal">
+                      <h3 data-i18n="skills.soft">Transverses &amp; langues</h3>
+                      <ul class="skill-list">
+                          <li><span>UI/UX</span><div class="bar"><i style="--lvl:85%"></i></div></li>
+                          <li><span data-i18n="skills.teamwork">Travail d'équipe</span><div class="bar"><i style="--lvl:90%"></i></div></li>
+                          <li><span data-i18n="skills.communication">Communication</span><div class="bar"><i style="--lvl:85%"></i></div></li>
+                          <li><span>Créole</span><div class="bar"><i style="--lvl:100%"></i></div></li>
+                          <li><span>Français</span><div class="bar"><i style="--lvl:100%"></i></div></li>
+                          <li><span>Anglais</span><div class="bar"><i style="--lvl:80%"></i></div></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- ===== CONTACT ===== -->
+      <section id="contact" class="section contact">
+          <div class="container contact-layout reveal">
+              <div class="contact-intro">
+                  <h2 data-i18n="contact.title">Travaillons ensemble.</h2>
+                  <p data-i18n="contact.sub">Stage, alternance, projet étudiant — n'hésitez pas à me contacter.</p>
+                  <a href="mailto:chav1301@usherbrooke.ca" class="btn btn-primary btn-lg">
+                      chav1301@usherbrooke.ca
+                  </a>
+                  <div class="social-row">
+                      <a href="https://www.linkedin.com/in/vernens-charles-383ba1315" target="_blank" rel="noopener noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
+                      <span>·</span>
+                      <a href="https://github.com/HaitianBoy-509" target="_blank" rel="noopener noreferrer" data-i18n="contact.github">GitHub</a>
+                  </div>
+              </div>
+
+              <form class="contact-form" id="contactForm" novalidate>
+                  <div class="form-field">
+                      <label for="contactName" data-i18n="contact.nameLabel">Nom</label>
+                      <input
+                          type="text"
+                          id="contactName"
+                          name="name"
+                          autocomplete="name"
+                          required
+                          data-i18n-placeholder="contact.namePlaceholder"
+                          placeholder="Votre nom" />
+                  </div>
+                  <div class="form-field">
+                      <label for="contactEmail" data-i18n="contact.emailLabel">Email</label>
+                      <input
+                          type="email"
+                          id="contactEmail"
+                          name="email"
+                          autocomplete="email"
+                          required
+                          data-i18n-placeholder="contact.emailPlaceholder"
+                          placeholder="votre.email@exemple.com" />
+                  </div>
+                  <div class="form-field">
+                      <label for="contactMessage" data-i18n="contact.messageLabel">Message</label>
+                      <textarea
+                          id="contactMessage"
+                          name="message"
+                          rows="5"
+                          required
+                          data-i18n-placeholder="contact.messagePlaceholder"
+                          placeholder="Votre message"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-lg form-submit" data-i18n="contact.submit">
+                      Envoyer le message
+                  </button>
+                  <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
+              </form>
+          </div>
+      </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Vernens Charles — <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+      <a href="#hero" class="to-top" data-i18n="footer.top">Retour en haut ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

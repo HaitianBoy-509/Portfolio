@@ -1,0 +1,5 @@
+# Fichiers temporaires Cursor / captures non utilisées
+assets/c__Users_*
+.DS_Store
+Thumbs.db
+*.log
