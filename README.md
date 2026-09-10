@@ -2,17 +2,6 @@
 
 Portfolio personnel en **HTML / CSS / JavaScript pur** — style professionnel, responsive, sans dépendances.
 
-## Aperçu
-
-Sections incluses :
-
-- **Hero** — présentation rapide avec appel à l'action
-- **À propos** — biographie + carte d'informations
-- **Expérience & Parcours** — timeline verticale
-- **Projets** — grille de cartes
-- **Compétences** — barres de progression animées
-- **Contact** — bloc CTA + liens sociaux
-
 ## Démarrage rapide
 
 Aucune installation requise. Ouvrir simplement `index.html` dans un navigateur :
@@ -38,25 +27,6 @@ Tout est édité dans `index.html` :
 4. **Projets** — modifier les `<article class="project-card">`
 5. **Expérience** — modifier les `<li class="timeline-item">`
 6. **Compétences** — ajuster les valeurs `--lvl:XX%`
-
-### Couleurs
-
-Le thème est centralisé dans `styles.css`, en haut du fichier (`:root`) :
-
-```css
---primary: #11294d;   /* bleu marine principal */
---accent:  #c8a45d;   /* doré / accent */
---bg:      #ffffff;   /* fond clair */
-```
-
-Changer ces 3 variables suffit à modifier toute la palette.
-
-### Polices
-
-Importées depuis Google Fonts :
-
-- **Inter** — texte courant
-- **Playfair Display** — titres (touche élégante / corporate)
 
 ## Hébergement gratuit
 
