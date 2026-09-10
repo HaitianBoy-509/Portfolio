@@ -8,25 +8,26 @@
   const translations = {
     fr: {
       'meta.title': 'Portfolio — Vernens Charles',
-      'meta.description': 'Portfolio de Vernens Charles — Développeur web junior en stage.',
+      'meta.description': 'Portfolio de Vernens Charles — Développeur web junior, à la recherche d\'un stage pour l\'hiver 2027.',
       'nav.about': 'À propos',
       'nav.experience': 'Expérience',
       'nav.projects': 'Projets',
       'nav.skills': 'Compétences',
+      'nav.recommendations': 'Recommandations',
       'nav.contact': 'Me contacter',
       'nav.menuOpen': 'Ouvrir le menu',
       'nav.langSwitch': 'Passer en anglais',
       'nav.themeDark': 'Activer le mode sombre',
       'nav.themeLight': 'Activer le mode clair',
-      'hero.eyebrow': 'Stage · Strateginc Groupe Financier',
+      'hero.eyebrow': 'À la recherche d\'un stage · Hiver 2027',
       'hero.title': 'Bonjour, je suis <span class="accent">Vernens Charles</span>.<br />Développeur web junior<span class="accent-dot">.</span>',
-      'hero.lead': 'Étudiant en <strong>développement web</strong> à l\'<strong>Université de Sherbrooke</strong> (Québec). En stage chez <strong>Strateginc Groupe Financier</strong>, j\'automatise leurs processus Microsoft et je construis des projets concrets pour répondre à des problèmes réels.',
+      'hero.lead': 'Étudiant en <strong>développement web</strong> à l\'<strong>Université de Sherbrooke</strong> (Québec). Mon stage chez <strong>Strateginc Groupe Financier</strong> s\'est terminé en août 2026. Je suis maintenant à la recherche d\'un <strong>stage pour l\'hiver 2027</strong>.',
       'hero.btnProjects': 'Voir mes projets',
-      'hero.btnContact': 'Me contacter →',
+      'hero.btnContact': 'Contacter un employeur →',
       'hero.metaProjects': 'projets réalisés',
       'hero.metaTech': 'technologies maîtrisées',
       'hero.metaYear': 'année en cours',
-      'hero.badge': 'Stage en cours',
+      'hero.badge': 'Ouvert aux opportunités',
       'hero.scroll': 'Faire défiler',
       'hero.photoAlt': 'Photo de profil de Vernens Charles',
       'about.title': 'À propos de moi',
@@ -52,10 +53,10 @@
       'exp2.title': 'Stage — Automatisation Microsoft',
       'exp2.org': 'Strateginc Groupe Financier, Saint-Bruno-de-Montarville',
       'exp2.desc': 'Automatisation des processus métier de l\'entreprise via l\'écosystème Microsoft. Analyse des flux existants, conception de solutions d\'automatisation et amélioration de l\'efficacité opérationnelle.',
-      'exp3.date': 'Janv. — Avr. 2026',
+      'exp3.date': 'Janv. — Avr. 2026 · Sept. — Déc. 2026',
       'exp3.title': 'Tuteur — Centre d\'aide en informatique',
       'exp3.org': 'Centre d\'entraide à l\'étude en informatique · Université de Sherbrooke',
-      'exp3.desc': 'Accompagnement d\'étudiants en programmation et concepts informatiques. Formation institutionnelle complétée. Attestation de participation étudiante 2026.',
+      'exp3.desc': 'Accompagnement d\'étudiants en programmation et concepts informatiques. Première session de janvier à avril 2026 (formation institutionnelle et attestation), puis reprise du poste de septembre à décembre 2026.',
       'exp3.cert': 'Voir l\'attestation →',
       'exp4.date': 'Sept. — Déc. 2025',
       'exp4.title': 'Stage — Amélioration UX web',
@@ -83,44 +84,79 @@
       'skills.git': 'Git et GitHub',
       'skills.teamwork': 'Travail d\'équipe',
       'skills.communication': 'Communication',
-      'contact.title': 'Travaillons ensemble.',
-      'contact.sub': 'Stage, alternance, projet étudiant — n\'hésitez pas à me contacter.',
+      'contact.title': 'Recrutez-moi pour l\'hiver 2027.',
+      'contact.sub': 'Je recherche un stage en informatique pour l\'hiver 2027 — développement, automatisation, analyse, ou tout autre rôle en TI. Employeurs : utilisez le formulaire ci-contre, je vous réponds rapidement.',
+      'contact.openForm': 'Accéder au formulaire',
+      'contact.formKicker': 'Formulaire employeur',
       'contact.linkedin': 'LinkedIn',
       'contact.github': 'GitHub',
       'contact.nameLabel': 'Nom',
+      'contact.companyLabel': 'Entreprise',
       'contact.emailLabel': 'Email',
       'contact.messageLabel': 'Message',
       'contact.namePlaceholder': 'Votre nom',
+      'contact.companyPlaceholder': 'Nom de l\'entreprise',
       'contact.emailPlaceholder': 'votre.email@exemple.com',
-      'contact.messagePlaceholder': 'Votre message',
+      'contact.messagePlaceholder': 'Parlez-moi du stage hiver 2027...',
       'contact.submit': 'Envoyer le message',
       'contact.success': 'Merci ! Votre client mail va s\'ouvrir pour envoyer le message.',
-      'contact.errorRequired': 'Veuillez remplir tous les champs.',
+      'contact.errorRequired': 'Veuillez remplir tous les champs obligatoires.',
       'contact.errorEmail': 'Veuillez entrer une adresse email valide.',
+      'rec.title': 'Recommandations',
+      'rec.sub': 'Témoignages de superviseurs et collègues — publiés après validation.',
+      'rec.empty': 'Aucune recommandation publiée pour le moment.',
+      'rec.formKicker': 'Espace superviseur',
+      'rec.formTitle': 'Laisser une recommandation',
+      'rec.formNote': 'Elle n\'apparaîtra sur le portfolio qu\'après mon approbation.',
+      'rec.nameLabel': 'Votre nom',
+      'rec.placeLabel': 'Où avons-nous travaillé ensemble ?',
+      'rec.messageLabel': 'Votre recommandation',
+      'rec.namePlaceholder': 'Prénom et nom',
+      'rec.placePlaceholder': 'Entreprise, équipe ou projet',
+      'rec.messagePlaceholder': 'Quelques lignes sur notre collaboration...',
+      'rec.submit': 'Envoyer pour validation',
+      'rec.success': 'Merci. Votre recommandation a été envoyée. Elle sera publiée seulement après ma validation.',
+      'rec.errorRequired': 'Veuillez remplir les trois champs.',
+      'rec.workedAt': 'Collaboration',
+      'admin.open': 'Modération',
+      'admin.title': 'Modération des recommandations',
+      'admin.pinHint': 'Entrez votre code pour approuver ou refuser les demandes.',
+      'admin.pinLabel': 'Code d\'approbation',
+      'admin.unlock': 'Déverrouiller',
+      'admin.pinError': 'Code incorrect.',
+      'admin.help': 'Les nouvelles demandes arrivent aussi par email. Vous pouvez les ajouter ici, puis les publier.',
+      'admin.pendingTitle': 'En attente',
+      'admin.none': 'Aucune demande en attente sur cet appareil.',
+      'admin.approve': 'Approuver',
+      'admin.reject': 'Refuser',
+      'admin.manualTitle': 'Ajouter une recommandation reçue',
+      'admin.publish': 'Publier sur le portfolio',
+      'admin.published': 'Recommandation publiée.',
       'footer.rights': 'Tous droits réservés.',
       'footer.top': 'Retour en haut ↑',
     },
     en: {
       'meta.title': 'Portfolio — Vernens Charles',
-      'meta.description': 'Portfolio of Vernens Charles — Junior Web Developer currently interning.',
+      'meta.description': 'Portfolio of Vernens Charles — Junior Web Developer seeking a Winter 2027 internship.',
       'nav.about': 'About',
       'nav.experience': 'Experience',
       'nav.projects': 'Projects',
       'nav.skills': 'Skills',
+      'nav.recommendations': 'Recommendations',
       'nav.contact': 'Contact me',
       'nav.menuOpen': 'Open menu',
       'nav.langSwitch': 'Switch to French',
       'nav.themeDark': 'Enable dark mode',
       'nav.themeLight': 'Enable light mode',
-      'hero.eyebrow': 'Internship · Strateginc Groupe Financier',
+      'hero.eyebrow': 'Seeking an internship · Winter 2027',
       'hero.title': 'Hi, I\'m <span class="accent">Vernens Charles</span>.<br />Junior Web Developer<span class="accent-dot">.</span>',
-      'hero.lead': 'Web development student at the <strong>Université de Sherbrooke</strong> (Quebec). Currently interning at <strong>Strateginc Groupe Financier</strong>, where I automate Microsoft workflows and build practical projects that solve real problems.',
+      'hero.lead': 'Web development student at the <strong>Université de Sherbrooke</strong> (Quebec). My internship at <strong>Strateginc Groupe Financier</strong> ended in August 2026. I am now looking for a <strong>Winter 2027 internship</strong>.',
       'hero.btnProjects': 'View my projects',
-      'hero.btnContact': 'Contact me →',
+      'hero.btnContact': 'Employer contact →',
       'hero.metaProjects': 'projects completed',
       'hero.metaTech': 'technologies mastered',
       'hero.metaYear': 'current year',
-      'hero.badge': 'Internship in progress',
+      'hero.badge': 'Open to opportunities',
       'hero.scroll': 'Scroll down',
       'hero.photoAlt': 'Profile photo of Vernens Charles',
       'about.title': 'About me',
@@ -146,10 +182,10 @@
       'exp2.title': 'Internship — Microsoft Automation',
       'exp2.org': 'Strateginc Groupe Financier, Saint-Bruno-de-Montarville',
       'exp2.desc': 'Business process automation using the Microsoft ecosystem. Analysis of existing workflows, design of automation solutions, and improved operational efficiency.',
-      'exp3.date': 'Jan. — Apr. 2026',
+      'exp3.date': 'Jan. — Apr. 2026 · Sep. — Dec. 2026',
       'exp3.title': 'Tutor — Computer Science Help Center',
       'exp3.org': 'Computer Science Study Help Center · Université de Sherbrooke',
-      'exp3.desc': 'Supported students with programming and computer science concepts. Completed required institutional training. 2026 student participation certificate.',
+      'exp3.desc': 'Supported students with programming and computer science concepts. First session from January to April 2026 (institutional training and certificate), then returned to the same role from September to December 2026.',
       'exp3.cert': 'View certificate →',
       'exp4.date': 'Sep. — Dec. 2025',
       'exp4.title': 'Internship — Web UX Improvement',
@@ -177,20 +213,54 @@
       'skills.git': 'Git and GitHub',
       'skills.teamwork': 'Teamwork',
       'skills.communication': 'Communication',
-      'contact.title': 'Let\'s work together.',
-      'contact.sub': 'Internship, work-study program, or student project — feel free to reach out.',
+      'contact.title': 'Hire me for Winter 2027.',
+      'contact.sub': 'I am looking for a computer science internship for Winter 2027 — development, automation, analysis, or any other IT role. Employers: use the form on the right and I will get back to you quickly.',
+      'contact.openForm': 'Open the form',
+      'contact.formKicker': 'Employer form',
       'contact.linkedin': 'LinkedIn',
       'contact.github': 'GitHub',
       'contact.nameLabel': 'Name',
+      'contact.companyLabel': 'Company',
       'contact.emailLabel': 'Email',
       'contact.messageLabel': 'Message',
       'contact.namePlaceholder': 'Your name',
+      'contact.companyPlaceholder': 'Company name',
       'contact.emailPlaceholder': 'your.email@example.com',
-      'contact.messagePlaceholder': 'Your message',
+      'contact.messagePlaceholder': 'Tell me about the Winter 2027 internship...',
       'contact.submit': 'Send message',
       'contact.success': 'Thanks! Your email client will open to send the message.',
-      'contact.errorRequired': 'Please fill in all fields.',
+      'contact.errorRequired': 'Please fill in all required fields.',
       'contact.errorEmail': 'Please enter a valid email address.',
+      'rec.title': 'Recommendations',
+      'rec.sub': 'Testimonials from supervisors and colleagues — published after validation.',
+      'rec.empty': 'No published recommendations yet.',
+      'rec.formKicker': 'Supervisor space',
+      'rec.formTitle': 'Leave a recommendation',
+      'rec.formNote': 'It will appear on the portfolio only after I approve it.',
+      'rec.nameLabel': 'Your name',
+      'rec.placeLabel': 'Where did we work together?',
+      'rec.messageLabel': 'Your recommendation',
+      'rec.namePlaceholder': 'First and last name',
+      'rec.placePlaceholder': 'Company, team, or project',
+      'rec.messagePlaceholder': 'A few lines about our collaboration...',
+      'rec.submit': 'Send for review',
+      'rec.success': 'Thank you. Your recommendation was sent. It will be published only after I approve it.',
+      'rec.errorRequired': 'Please fill in all three fields.',
+      'rec.workedAt': 'Worked together at',
+      'admin.open': 'Moderation',
+      'admin.title': 'Recommendation moderation',
+      'admin.pinHint': 'Enter your code to approve or reject requests.',
+      'admin.pinLabel': 'Approval code',
+      'admin.unlock': 'Unlock',
+      'admin.pinError': 'Incorrect code.',
+      'admin.help': 'New requests also arrive by email. You can add them here, then publish them.',
+      'admin.pendingTitle': 'Pending',
+      'admin.none': 'No pending requests on this device.',
+      'admin.approve': 'Approve',
+      'admin.reject': 'Reject',
+      'admin.manualTitle': 'Add a recommendation received by email',
+      'admin.publish': 'Publish on the portfolio',
+      'admin.published': 'Recommendation published.',
       'footer.rights': 'All rights reserved.',
       'footer.top': 'Back to top ↑',
     },
@@ -264,7 +334,12 @@
     }
 
     updateThemeToggleLabel();
+    if (typeof renderApprovedRecs === 'function') renderApprovedRecs();
+    if (typeof renderAdminPending === 'function') renderAdminPending();
   };
+
+  let renderApprovedRecs = () => {};
+  let renderAdminPending = () => {};
 
   const updateThemeToggleLabel = () => {
     if (!themeToggle) return;
@@ -483,6 +558,7 @@
 
   if (contactForm) {
     const nameInput = document.getElementById('contactName');
+    const companyInput = document.getElementById('contactCompany');
     const emailInput = document.getElementById('contactEmail');
     const messageInput = document.getElementById('contactMessage');
     const fields = [nameInput, emailInput, messageInput].filter(Boolean);
@@ -504,6 +580,7 @@
       clearInvalid();
 
       const name = nameInput?.value.trim() || '';
+      const company = companyInput?.value.trim() || '';
       const email = emailInput?.value.trim() || '';
       const message = messageInput?.value.trim() || '';
       const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -524,13 +601,13 @@
 
       const subject = encodeURIComponent(
         currentLang === 'en'
-          ? `Portfolio contact — ${name}`
-          : `Contact portfolio — ${name}`
+          ? `Winter 2027 internship — ${name}${company ? ` (${company})` : ''}`
+          : `Stage hiver 2027 — ${name}${company ? ` (${company})` : ''}`
       );
       const body = encodeURIComponent(
         currentLang === 'en'
-          ? `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-          : `Nom : ${name}\nEmail : ${email}\n\nMessage :\n${message}`
+          ? `Name: ${name}\nCompany: ${company || '—'}\nEmail: ${email}\n\nMessage:\n${message}`
+          : `Nom : ${name}\nEntreprise : ${company || '—'}\nEmail : ${email}\n\nMessage :\n${message}`
       );
 
       window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
@@ -547,4 +624,216 @@
       });
     });
   }
+
+  // Recommandations + modération
+  const REC_PENDING_KEY = 'portfolio_rec_pending';
+  const REC_APPROVED_KEY = 'portfolio_rec_approved';
+  const ADMIN_PIN = 'VC-hiver-2027';
+  const recApprovedEl = document.getElementById('recApproved');
+  const recForm = document.getElementById('recForm');
+  const recStatus = document.getElementById('recStatus');
+  const adminModal = document.getElementById('adminModal');
+  const adminOpen = document.getElementById('adminOpen');
+  const adminClose = document.getElementById('adminClose');
+  const adminPinForm = document.getElementById('adminPinForm');
+  const adminPin = document.getElementById('adminPin');
+  const adminPinStatus = document.getElementById('adminPinStatus');
+  const adminBody = document.getElementById('adminBody');
+  const adminPending = document.getElementById('adminPending');
+  const adminManualForm = document.getElementById('adminManualForm');
+  let publishedSeed = [];
+  let adminUnlocked = false;
+
+  const readList = (key) => {
+    try {
+      const raw = localStorage.getItem(key);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  };
+
+  const writeList = (key, list) => {
+    localStorage.setItem(key, JSON.stringify(list));
+  };
+
+  const uid = () => `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+
+  const escapeHtml = (value) =>
+    String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+
+  const mergedApproved = () => {
+    const local = readList(REC_APPROVED_KEY);
+    const map = new Map();
+    [...publishedSeed, ...local].forEach((item) => {
+      if (item && item.id) map.set(item.id, item);
+    });
+    return [...map.values()];
+  };
+
+  renderApprovedRecs = () => {
+    if (!recApprovedEl) return;
+    const items = mergedApproved();
+    recApprovedEl.querySelectorAll('.rec-card').forEach((card) => card.remove());
+    items.forEach((item) => {
+      const article = document.createElement('article');
+      article.className = 'rec-card';
+      article.innerHTML = `
+        <p class="rec-quote">${escapeHtml(item.message)}</p>
+        <div class="rec-meta">
+          <strong>${escapeHtml(item.name)}</strong>
+          <span>${escapeHtml(t('rec.workedAt'))} ${escapeHtml(item.workplace)}</span>
+        </div>
+      `;
+      recApprovedEl.appendChild(article);
+    });
+  };
+
+  renderAdminPending = () => {
+    if (!adminPending) return;
+    const pending = readList(REC_PENDING_KEY);
+    if (!pending.length) {
+      adminPending.innerHTML = `<p class="admin-none">${t('admin.none')}</p>`;
+      return;
+    }
+    adminPending.innerHTML = `<h3>${t('admin.pendingTitle')}</h3>` + pending.map((item) => `
+      <article class="admin-card" data-id="${escapeHtml(item.id)}">
+        <p class="rec-quote">${escapeHtml(item.message)}</p>
+        <p><strong>${escapeHtml(item.name)}</strong> · ${escapeHtml(item.workplace)}</p>
+        <div class="admin-actions">
+          <button type="button" class="btn btn-primary" data-action="approve">${t('admin.approve')}</button>
+          <button type="button" class="btn btn-ghost" data-action="reject">${t('admin.reject')}</button>
+        </div>
+      </article>
+    `).join('');
+  };
+
+  const showRecStatus = (message, type) => {
+    if (!recStatus) return;
+    recStatus.hidden = false;
+    recStatus.textContent = message;
+    recStatus.classList.remove('is-success', 'is-error');
+    recStatus.classList.add(type === 'success' ? 'is-success' : 'is-error');
+  };
+
+  if (recForm) {
+    recForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('recName')?.value.trim() || '';
+      const workplace = document.getElementById('recWorkplace')?.value.trim() || '';
+      const message = document.getElementById('recMessage')?.value.trim() || '';
+      const fields = ['recName', 'recWorkplace', 'recMessage']
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+      fields.forEach((field) => field.classList.remove('is-invalid'));
+
+      if (!name || !workplace || !message) {
+        fields.forEach((field) => {
+          if (!field.value.trim()) field.classList.add('is-invalid');
+        });
+        showRecStatus(t('rec.errorRequired'), 'error');
+        return;
+      }
+
+      const rec = { id: uid(), name, workplace, message, createdAt: new Date().toISOString() };
+      writeList(REC_PENDING_KEY, [...readList(REC_PENDING_KEY), rec]);
+
+      const subject = encodeURIComponent(
+        currentLang === 'en'
+          ? `Recommendation to approve — ${name}`
+          : `Recommandation à valider — ${name}`
+      );
+      const body = encodeURIComponent(
+        currentLang === 'en'
+          ? `A recommendation is waiting for your approval.\n\nName: ${name}\nWorked together at: ${workplace}\n\nRecommendation:\n${message}`
+          : `Une recommandation attend votre validation.\n\nNom : ${name}\nLieu de collaboration : ${workplace}\n\nRecommandation :\n${message}`
+      );
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      showRecStatus(t('rec.success'), 'success');
+      recForm.reset();
+    });
+  }
+
+  const setAdminOpen = (open) => {
+    if (!adminModal) return;
+    adminModal.hidden = !open;
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (!open) {
+      adminUnlocked = false;
+      if (adminBody) adminBody.hidden = true;
+      if (adminPinForm) adminPinForm.hidden = false;
+      if (adminPin) adminPin.value = '';
+      if (adminPinStatus) adminPinStatus.hidden = true;
+    }
+  };
+
+  adminOpen?.addEventListener('click', () => setAdminOpen(true));
+  adminClose?.addEventListener('click', () => setAdminOpen(false));
+  adminModal?.addEventListener('click', (e) => {
+    if (e.target === adminModal) setAdminOpen(false);
+  });
+
+  adminPinForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if ((adminPin?.value || '') !== ADMIN_PIN) {
+      if (adminPinStatus) {
+        adminPinStatus.hidden = false;
+        adminPinStatus.textContent = t('admin.pinError');
+        adminPinStatus.classList.add('is-error');
+        adminPinStatus.classList.remove('is-success');
+      }
+      return;
+    }
+    adminUnlocked = true;
+    if (adminPinForm) adminPinForm.hidden = true;
+    if (adminBody) adminBody.hidden = false;
+    renderAdminPending();
+  });
+
+  adminPending?.addEventListener('click', (e) => {
+    const button = e.target.closest('button[data-action]');
+    const card = e.target.closest('.admin-card');
+    if (!button || !card || !adminUnlocked) return;
+    const id = card.getAttribute('data-id');
+    const pending = readList(REC_PENDING_KEY);
+    const rec = pending.find((item) => item.id === id);
+    if (!rec) return;
+    const nextPending = pending.filter((item) => item.id !== id);
+    writeList(REC_PENDING_KEY, nextPending);
+    if (button.getAttribute('data-action') === 'approve') {
+      writeList(REC_APPROVED_KEY, [...readList(REC_APPROVED_KEY), rec]);
+      renderApprovedRecs();
+    }
+    renderAdminPending();
+  });
+
+  adminManualForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!adminUnlocked) return;
+    const name = document.getElementById('adminName')?.value.trim() || '';
+    const workplace = document.getElementById('adminPlace')?.value.trim() || '';
+    const message = document.getElementById('adminMessage')?.value.trim() || '';
+    if (!name || !workplace || !message) return;
+    const rec = { id: uid(), name, workplace, message, createdAt: new Date().toISOString() };
+    writeList(REC_APPROVED_KEY, [...readList(REC_APPROVED_KEY), rec]);
+    adminManualForm.reset();
+    renderApprovedRecs();
+  });
+
+  fetch('recommendations.json')
+    .then((res) => (res.ok ? res.json() : { approved: [] }))
+    .then((data) => {
+      publishedSeed = Array.isArray(data?.approved) ? data.approved : [];
+      renderApprovedRecs();
+    })
+    .catch(() => {
+      renderApprovedRecs();
+    });
+
+  renderApprovedRecs();
 })();
