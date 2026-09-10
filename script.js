@@ -738,7 +738,11 @@
 
   adminPinForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-    if ((adminPin?.value || '') !== ADMIN_PIN) {
+    e.stopPropagation();
+    const typed = String(adminPinForm.querySelector('#adminPin')?.value || '')
+      .trim()
+      .replace(/\s+/g, '');
+    if (typed !== ADMIN_PIN) {
       if (adminPinStatus) {
         adminPinStatus.hidden = false;
         adminPinStatus.textContent = t('admin.pinError');

@@ -1265,6 +1265,10 @@ ul, ol { list-style: none; padding: 0; }
 .admin-close:hover { color: var(--text); background: var(--bg-alt); }
 .admin-pin,
 .admin-body { display: grid; gap: 16px; }
+.admin-pin[hidden],
+.admin-body[hidden] {
+  display: none !important;
+}
 .admin-help,
 .admin-none {
   color: var(--text-soft);

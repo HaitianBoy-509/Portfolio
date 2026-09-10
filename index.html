@@ -385,7 +385,7 @@
                               <p data-i18n="admin.pinHint">Mot de passe requis pour approuver ou refuser.</p>
                               <div class="form-field">
                                   <label for="adminPin" data-i18n="admin.pinLabel">Mot de passe</label>
-                                  <input type="password" id="adminPin" autocomplete="off" />
+                                  <input type="text" id="adminPin" name="pin" inputmode="numeric" autocomplete="off" />
                               </div>
                               <button type="submit" class="btn btn-primary" data-i18n="admin.unlock">Ouvrir</button>
                               <p class="form-status" id="adminPinStatus" role="status" hidden></p>
@@ -475,6 +475,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2003b"></script>
 </body>
 </html>
