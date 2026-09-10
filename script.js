@@ -107,7 +107,7 @@
       'rec.empty': 'Aucune recommandation publiée pour le moment.',
       'rec.formKicker': 'Espace superviseur',
       'rec.formTitle': 'Laisser une recommandation',
-      'rec.formNote': 'Elle n\'apparaîtra sur le portfolio qu\'après mon approbation.',
+      'rec.formNote': 'La recommandation est envoyée à chav1301@usherbrooke.ca. Elle n\'apparaîtra sur le portfolio qu\'après mon approbation.',
       'rec.nameLabel': 'Votre nom',
       'rec.placeLabel': 'Où avons-nous travaillé ensemble ?',
       'rec.messageLabel': 'Votre recommandation',
@@ -115,8 +115,9 @@
       'rec.placePlaceholder': 'Entreprise, équipe ou projet',
       'rec.messagePlaceholder': 'Quelques lignes sur notre collaboration...',
       'rec.submit': 'Envoyer pour validation',
-      'rec.success': 'Merci. Votre recommandation a été envoyée. Elle sera publiée seulement après ma validation.',
+      'rec.success': 'Merci. Votre recommandation a été envoyée à chav1301@usherbrooke.ca. Elle sera publiée seulement après ma validation.',
       'rec.errorRequired': 'Veuillez remplir les trois champs.',
+      'rec.errorSend': 'L\'envoi a échoué. Réessayez, ou écrivez directement à chav1301@usherbrooke.ca.',
       'rec.workedAt': 'Collaboration',
       'admin.open': 'Modération',
       'admin.title': 'Modération des recommandations',
@@ -236,7 +237,7 @@
       'rec.empty': 'No published recommendations yet.',
       'rec.formKicker': 'Supervisor space',
       'rec.formTitle': 'Leave a recommendation',
-      'rec.formNote': 'It will appear on the portfolio only after I approve it.',
+      'rec.formNote': 'The recommendation is sent to chav1301@usherbrooke.ca. It will appear on the portfolio only after I approve it.',
       'rec.nameLabel': 'Your name',
       'rec.placeLabel': 'Where did we work together?',
       'rec.messageLabel': 'Your recommendation',
@@ -244,8 +245,9 @@
       'rec.placePlaceholder': 'Company, team, or project',
       'rec.messagePlaceholder': 'A few lines about our collaboration...',
       'rec.submit': 'Send for review',
-      'rec.success': 'Thank you. Your recommendation was sent. It will be published only after I approve it.',
+      'rec.success': 'Thank you. Your recommendation was sent to chav1301@usherbrooke.ca. It will be published only after I approve it.',
       'rec.errorRequired': 'Please fill in all three fields.',
+      'rec.errorSend': 'Sending failed. Please try again, or email chav1301@usherbrooke.ca directly.',
       'rec.workedAt': 'Worked together at',
       'admin.open': 'Moderation',
       'admin.title': 'Recommendation moderation',
@@ -722,11 +724,12 @@
   };
 
   if (recForm) {
-    recForm.addEventListener('submit', (e) => {
+    recForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = document.getElementById('recName')?.value.trim() || '';
       const workplace = document.getElementById('recWorkplace')?.value.trim() || '';
       const message = document.getElementById('recMessage')?.value.trim() || '';
+      const submitBtn = recForm.querySelector('button[type="submit"]');
       const fields = ['recName', 'recWorkplace', 'recMessage']
         .map((id) => document.getElementById(id))
         .filter(Boolean);
@@ -743,19 +746,38 @@
       const rec = { id: uid(), name, workplace, message, createdAt: new Date().toISOString() };
       writeList(REC_PENDING_KEY, [...readList(REC_PENDING_KEY), rec]);
 
-      const subject = encodeURIComponent(
-        currentLang === 'en'
-          ? `Recommendation to approve — ${name}`
-          : `Recommandation à valider — ${name}`
-      );
-      const body = encodeURIComponent(
-        currentLang === 'en'
-          ? `A recommendation is waiting for your approval.\n\nName: ${name}\nWorked together at: ${workplace}\n\nRecommendation:\n${message}`
-          : `Une recommandation attend votre validation.\n\nNom : ${name}\nLieu de collaboration : ${workplace}\n\nRecommandation :\n${message}`
-      );
-      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-      showRecStatus(t('rec.success'), 'success');
-      recForm.reset();
+      const subject = currentLang === 'en'
+        ? `Recommendation to approve — ${name}`
+        : `Recommandation à valider — ${name}`;
+
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            workplace,
+            message,
+            _subject: subject,
+            _template: 'table',
+            _captcha: 'false',
+          }),
+        });
+        if (!response.ok) throw new Error('send-failed');
+        const data = await response.json().catch(() => ({}));
+        if (data.success === false) throw new Error('send-failed');
+        showRecStatus(t('rec.success'), 'success');
+        recForm.reset();
+      } catch {
+        showRecStatus(t('rec.errorSend'), 'error');
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
     });
   }
 
