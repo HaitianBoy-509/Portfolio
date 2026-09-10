@@ -358,7 +358,7 @@
                   <aside class="rec-panel reveal" data-reveal="fade-left">
                       <span class="rec-kicker" data-i18n="rec.formKicker">Espace superviseur</span>
                       <h3 data-i18n="rec.formTitle">Laisser une recommandation</h3>
-                      <p class="rec-note" data-i18n="rec.formNote">La recommandation est envoyée à chav1301@usherbrooke.ca. Elle n'apparaîtra sur le portfolio qu'après mon approbation.</p>
+                      <p class="rec-note" data-i18n="rec.formNote">Elle n'apparaîtra sur le portfolio qu'après validation avec mon mot de passe.</p>
                       <form class="contact-form rec-form" id="recForm" novalidate>
                           <div class="form-field">
                               <label for="recName" data-i18n="rec.nameLabel">Votre nom</label>
@@ -378,6 +378,22 @@
                           <button type="submit" class="btn btn-primary btn-lg form-submit" data-i18n="rec.submit">Envoyer pour validation</button>
                           <p class="form-status" id="recStatus" role="status" aria-live="polite" hidden></p>
                       </form>
+
+                      <div class="rec-owner">
+                          <h3 data-i18n="admin.title">Valider une recommandation</h3>
+                          <form class="admin-pin" id="adminPinForm">
+                              <p data-i18n="admin.pinHint">Mot de passe requis pour approuver ou refuser.</p>
+                              <div class="form-field">
+                                  <label for="adminPin" data-i18n="admin.pinLabel">Mot de passe</label>
+                                  <input type="password" id="adminPin" autocomplete="off" />
+                              </div>
+                              <button type="submit" class="btn btn-primary" data-i18n="admin.unlock">Ouvrir</button>
+                              <p class="form-status" id="adminPinStatus" role="status" hidden></p>
+                          </form>
+                          <div class="admin-body" id="adminBody" hidden>
+                              <div id="adminPending" class="admin-pending"></div>
+                          </div>
+                      </div>
                   </aside>
               </div>
           </div>
@@ -452,51 +468,10 @@
       </section>
   </main>
 
-  <div class="admin-modal" id="adminModal" hidden>
-      <div class="admin-dialog" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
-          <div class="admin-head">
-              <h2 id="adminTitle" data-i18n="admin.title">Modération des recommandations</h2>
-              <button type="button" class="admin-close" id="adminClose" aria-label="Fermer">×</button>
-          </div>
-          <form class="admin-pin" id="adminPinForm">
-              <p data-i18n="admin.pinHint">Entrez votre code pour approuver ou refuser les demandes.</p>
-              <div class="form-field">
-                  <label for="adminPin" data-i18n="admin.pinLabel">Code d'approbation</label>
-                  <input type="password" id="adminPin" autocomplete="current-password" />
-              </div>
-              <button type="submit" class="btn btn-primary" data-i18n="admin.unlock">Déverrouiller</button>
-              <p class="form-status" id="adminPinStatus" role="status" hidden></p>
-          </form>
-          <div class="admin-body" id="adminBody" hidden>
-              <p class="admin-help" data-i18n="admin.help">Les nouvelles demandes arrivent aussi par email. Vous pouvez les ajouter ici, puis les publier.</p>
-              <div id="adminPending" class="admin-pending"></div>
-              <form class="contact-form rec-form" id="adminManualForm" novalidate>
-                  <h3 data-i18n="admin.manualTitle">Ajouter une recommandation reçue</h3>
-                  <div class="form-field">
-                      <label for="adminName" data-i18n="rec.nameLabel">Nom</label>
-                      <input type="text" id="adminName" required />
-                  </div>
-                  <div class="form-field">
-                      <label for="adminPlace" data-i18n="rec.placeLabel">Lieu de collaboration</label>
-                      <input type="text" id="adminPlace" required />
-                  </div>
-                  <div class="form-field">
-                      <label for="adminMessage" data-i18n="rec.messageLabel">Recommandation</label>
-                      <textarea id="adminMessage" rows="5" required></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-primary" data-i18n="admin.publish">Publier sur le portfolio</button>
-              </form>
-          </div>
-      </div>
-  </div>
-
   <footer class="footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Vernens Charles — <span data-i18n="footer.rights">Tous droits réservés.</span></p>
-      <div class="footer-links">
-          <button type="button" class="admin-trigger" id="adminOpen" data-i18n="admin.open">Modération</button>
-          <a href="#hero" class="to-top" data-i18n="footer.top">Retour en haut ↑</a>
-      </div>
+      <a href="#hero" class="to-top" data-i18n="footer.top">Retour en haut ↑</a>
     </div>
   </footer>
 

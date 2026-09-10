@@ -107,7 +107,7 @@
       'rec.empty': 'Aucune recommandation publiée pour le moment.',
       'rec.formKicker': 'Espace superviseur',
       'rec.formTitle': 'Laisser une recommandation',
-      'rec.formNote': 'La recommandation est envoyée à chav1301@usherbrooke.ca. Elle n\'apparaîtra sur le portfolio qu\'après mon approbation.',
+      'rec.formNote': 'Elle n\'apparaîtra sur le portfolio qu\'après validation avec mon mot de passe.',
       'rec.nameLabel': 'Votre nom',
       'rec.placeLabel': 'Où avons-nous travaillé ensemble ?',
       'rec.messageLabel': 'Votre recommandation',
@@ -115,24 +115,19 @@
       'rec.placePlaceholder': 'Entreprise, équipe ou projet',
       'rec.messagePlaceholder': 'Quelques lignes sur notre collaboration...',
       'rec.submit': 'Envoyer pour validation',
-      'rec.success': 'Merci. Votre recommandation a été envoyée à chav1301@usherbrooke.ca. Elle sera publiée seulement après ma validation.',
+      'rec.success': 'Merci. Votre recommandation est en attente. Elle sera publiée une fois validée sur le site.',
       'rec.errorRequired': 'Veuillez remplir les trois champs.',
-      'rec.errorSend': 'L\'envoi a échoué. Réessayez, ou écrivez directement à chav1301@usherbrooke.ca.',
       'rec.workedAt': 'Collaboration',
-      'admin.open': 'Modération',
-      'admin.title': 'Modération des recommandations',
-      'admin.pinHint': 'Entrez votre code pour approuver ou refuser les demandes.',
-      'admin.pinLabel': 'Code d\'approbation',
-      'admin.unlock': 'Déverrouiller',
-      'admin.pinError': 'Code incorrect.',
-      'admin.help': 'Les nouvelles demandes arrivent aussi par email. Vous pouvez les ajouter ici, puis les publier.',
-      'admin.pendingTitle': 'En attente',
-      'admin.none': 'Aucune demande en attente sur cet appareil.',
+      'admin.open': 'Valider',
+      'admin.title': 'Valider une recommandation',
+      'admin.pinHint': 'Mot de passe requis pour approuver ou refuser.',
+      'admin.pinLabel': 'Mot de passe',
+      'admin.unlock': 'Ouvrir',
+      'admin.pinError': 'Mot de passe incorrect.',
+      'admin.pendingTitle': 'En attente de validation',
+      'admin.none': 'Aucune recommandation en attente.',
       'admin.approve': 'Approuver',
       'admin.reject': 'Refuser',
-      'admin.manualTitle': 'Ajouter une recommandation reçue',
-      'admin.publish': 'Publier sur le portfolio',
-      'admin.published': 'Recommandation publiée.',
       'footer.rights': 'Tous droits réservés.',
       'footer.top': 'Retour en haut ↑',
     },
@@ -237,7 +232,7 @@
       'rec.empty': 'No published recommendations yet.',
       'rec.formKicker': 'Supervisor space',
       'rec.formTitle': 'Leave a recommendation',
-      'rec.formNote': 'The recommendation is sent to chav1301@usherbrooke.ca. It will appear on the portfolio only after I approve it.',
+      'rec.formNote': 'It will appear on the portfolio only after I approve it with my password.',
       'rec.nameLabel': 'Your name',
       'rec.placeLabel': 'Where did we work together?',
       'rec.messageLabel': 'Your recommendation',
@@ -245,24 +240,19 @@
       'rec.placePlaceholder': 'Company, team, or project',
       'rec.messagePlaceholder': 'A few lines about our collaboration...',
       'rec.submit': 'Send for review',
-      'rec.success': 'Thank you. Your recommendation was sent to chav1301@usherbrooke.ca. It will be published only after I approve it.',
+      'rec.success': 'Thank you. Your recommendation is pending. It will be published once it is approved on the site.',
       'rec.errorRequired': 'Please fill in all three fields.',
-      'rec.errorSend': 'Sending failed. Please try again, or email chav1301@usherbrooke.ca directly.',
       'rec.workedAt': 'Worked together at',
-      'admin.open': 'Moderation',
-      'admin.title': 'Recommendation moderation',
-      'admin.pinHint': 'Enter your code to approve or reject requests.',
-      'admin.pinLabel': 'Approval code',
+      'admin.open': 'Approve',
+      'admin.title': 'Approve a recommendation',
+      'admin.pinHint': 'Password required to approve or reject.',
+      'admin.pinLabel': 'Password',
       'admin.unlock': 'Unlock',
-      'admin.pinError': 'Incorrect code.',
-      'admin.help': 'New requests also arrive by email. You can add them here, then publish them.',
-      'admin.pendingTitle': 'Pending',
-      'admin.none': 'No pending requests on this device.',
+      'admin.pinError': 'Incorrect password.',
+      'admin.pendingTitle': 'Waiting for approval',
+      'admin.none': 'No pending recommendations.',
       'admin.approve': 'Approve',
       'admin.reject': 'Reject',
-      'admin.manualTitle': 'Add a recommendation received by email',
-      'admin.publish': 'Publish on the portfolio',
-      'admin.published': 'Recommendation published.',
       'footer.rights': 'All rights reserved.',
       'footer.top': 'Back to top ↑',
     },
@@ -630,19 +620,15 @@
   // Recommandations + modération
   const REC_PENDING_KEY = 'portfolio_rec_pending';
   const REC_APPROVED_KEY = 'portfolio_rec_approved';
-  const ADMIN_PIN = 'VC-hiver-2027';
+  const ADMIN_PIN = '2003';
   const recApprovedEl = document.getElementById('recApproved');
   const recForm = document.getElementById('recForm');
   const recStatus = document.getElementById('recStatus');
-  const adminModal = document.getElementById('adminModal');
-  const adminOpen = document.getElementById('adminOpen');
-  const adminClose = document.getElementById('adminClose');
   const adminPinForm = document.getElementById('adminPinForm');
   const adminPin = document.getElementById('adminPin');
   const adminPinStatus = document.getElementById('adminPinStatus');
   const adminBody = document.getElementById('adminBody');
   const adminPending = document.getElementById('adminPending');
-  const adminManualForm = document.getElementById('adminManualForm');
   let publishedSeed = [];
   let adminUnlocked = false;
 
@@ -724,12 +710,11 @@
   };
 
   if (recForm) {
-    recForm.addEventListener('submit', async (e) => {
+    recForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('recName')?.value.trim() || '';
       const workplace = document.getElementById('recWorkplace')?.value.trim() || '';
       const message = document.getElementById('recMessage')?.value.trim() || '';
-      const submitBtn = recForm.querySelector('button[type="submit"]');
       const fields = ['recName', 'recWorkplace', 'recMessage']
         .map((id) => document.getElementById(id))
         .filter(Boolean);
@@ -745,60 +730,11 @@
 
       const rec = { id: uid(), name, workplace, message, createdAt: new Date().toISOString() };
       writeList(REC_PENDING_KEY, [...readList(REC_PENDING_KEY), rec]);
-
-      const subject = currentLang === 'en'
-        ? `Recommendation to approve — ${name}`
-        : `Recommandation à valider — ${name}`;
-
-      if (submitBtn) submitBtn.disabled = true;
-
-      try {
-        const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          body: JSON.stringify({
-            name,
-            workplace,
-            message,
-            _subject: subject,
-            _template: 'table',
-            _captcha: 'false',
-          }),
-        });
-        if (!response.ok) throw new Error('send-failed');
-        const data = await response.json().catch(() => ({}));
-        if (data.success === false) throw new Error('send-failed');
-        showRecStatus(t('rec.success'), 'success');
-        recForm.reset();
-      } catch {
-        showRecStatus(t('rec.errorSend'), 'error');
-      } finally {
-        if (submitBtn) submitBtn.disabled = false;
-      }
+      showRecStatus(t('rec.success'), 'success');
+      recForm.reset();
+      if (adminUnlocked) renderAdminPending();
     });
   }
-
-  const setAdminOpen = (open) => {
-    if (!adminModal) return;
-    adminModal.hidden = !open;
-    document.body.style.overflow = open ? 'hidden' : '';
-    if (!open) {
-      adminUnlocked = false;
-      if (adminBody) adminBody.hidden = true;
-      if (adminPinForm) adminPinForm.hidden = false;
-      if (adminPin) adminPin.value = '';
-      if (adminPinStatus) adminPinStatus.hidden = true;
-    }
-  };
-
-  adminOpen?.addEventListener('click', () => setAdminOpen(true));
-  adminClose?.addEventListener('click', () => setAdminOpen(false));
-  adminModal?.addEventListener('click', (e) => {
-    if (e.target === adminModal) setAdminOpen(false);
-  });
 
   adminPinForm?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -832,19 +768,6 @@
       renderApprovedRecs();
     }
     renderAdminPending();
-  });
-
-  adminManualForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!adminUnlocked) return;
-    const name = document.getElementById('adminName')?.value.trim() || '';
-    const workplace = document.getElementById('adminPlace')?.value.trim() || '';
-    const message = document.getElementById('adminMessage')?.value.trim() || '';
-    if (!name || !workplace || !message) return;
-    const rec = { id: uid(), name, workplace, message, createdAt: new Date().toISOString() };
-    writeList(REC_APPROVED_KEY, [...readList(REC_APPROVED_KEY), rec]);
-    adminManualForm.reset();
-    renderApprovedRecs();
   });
 
   fetch('recommendations.json')
