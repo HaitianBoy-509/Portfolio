@@ -7,8 +7,8 @@
 
   const translations = {
     fr: {
-      'meta.title': 'Portfolio — Vernens Charles',
-      'meta.description': 'Portfolio de Vernens Charles — Développeur web junior, à la recherche d\'un stage pour l\'hiver 2027.',
+      'meta.title': 'Vernens Charles | Portfolio',
+      'meta.description': 'Portfolio de Vernens Charles — Développeur web junior, à la recherche d\'un stage en informatique pour l\'hiver 2027.',
       'nav.about': 'À propos',
       'nav.experience': 'Expérience',
       'nav.projects': 'Projets',
@@ -136,8 +136,8 @@
       'footer.top': 'Retour en haut ↑',
     },
     en: {
-      'meta.title': 'Portfolio — Vernens Charles',
-      'meta.description': 'Portfolio of Vernens Charles — Junior Web Developer seeking a Winter 2027 internship.',
+      'meta.title': 'Vernens Charles | Portfolio',
+      'meta.description': 'Portfolio of Vernens Charles — Junior Web Developer seeking a computer science internship for Winter 2027.',
       'nav.about': 'About',
       'nav.experience': 'Experience',
       'nav.projects': 'Projects',
