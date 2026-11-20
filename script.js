@@ -13,18 +13,15 @@
       'nav.experience': 'Expérience',
       'nav.projects': 'Projets',
       'nav.skills': 'Compétences',
-      'nav.recommendations': 'Recommandations',
       'nav.contact': 'Me contacter',
       'nav.menuOpen': 'Ouvrir le menu',
       'nav.langSwitch': 'Passer en anglais',
-      'nav.themeDark': 'Activer le mode sombre',
-      'nav.themeLight': 'Activer le mode clair',
       'hero.eyebrow': 'À la recherche d\'un stage · Hiver 2027',
       'hero.title': 'Bonjour, je suis <span class="accent">Vernens Charles</span>.<br />Développeur web junior<span class="accent-dot">.</span>',
       'hero.lead': 'Étudiant en <strong>développement web</strong> à l\'<strong>Université de Sherbrooke</strong> (Québec). Mon stage chez <strong>Strateginc Groupe Financier</strong> s\'est terminé en août 2026. Je suis maintenant à la recherche d\'un <strong>stage pour l\'hiver 2027</strong>.',
       'hero.btnProjects': 'Voir mes projets',
-      'hero.btnContact': 'Contacter un employeur →',
-      'hero.metaProjects': 'projets réalisés',
+      'hero.btnContact': 'Me contacter →',
+      'hero.metaProjects': 'projet mis en avant',
       'hero.metaTech': 'technologies maîtrisées',
       'hero.metaYear': 'année en cours',
       'hero.badge': 'Ouvert aux opportunités',
@@ -84,50 +81,10 @@
       'skills.git': 'Git et GitHub',
       'skills.teamwork': 'Travail d\'équipe',
       'skills.communication': 'Communication',
-      'contact.title': 'Recrutez-moi pour l\'hiver 2027.',
-      'contact.sub': 'Je recherche un stage en informatique pour l\'hiver 2027 — développement, automatisation, analyse, ou tout autre rôle en TI. Employeurs : utilisez le formulaire ci-contre, je vous réponds rapidement.',
-      'contact.openForm': 'Accéder au formulaire',
-      'contact.formKicker': 'Formulaire employeur',
+      'contact.title': 'Me contacter',
+      'contact.sub': 'Une question, un projet ou une opportunité ? Écrivez-moi — je vous réponds dès que possible.',
       'contact.linkedin': 'LinkedIn',
       'contact.github': 'GitHub',
-      'contact.nameLabel': 'Nom',
-      'contact.companyLabel': 'Entreprise',
-      'contact.emailLabel': 'Email',
-      'contact.messageLabel': 'Message',
-      'contact.namePlaceholder': 'Votre nom',
-      'contact.companyPlaceholder': 'Nom de l\'entreprise',
-      'contact.emailPlaceholder': 'votre.email@exemple.com',
-      'contact.messagePlaceholder': 'Parlez-moi du stage hiver 2027...',
-      'contact.submit': 'Envoyer le message',
-      'contact.success': 'Merci ! Votre client mail va s\'ouvrir pour envoyer le message.',
-      'contact.errorRequired': 'Veuillez remplir tous les champs obligatoires.',
-      'contact.errorEmail': 'Veuillez entrer une adresse email valide.',
-      'rec.title': 'Recommandations',
-      'rec.sub': 'Témoignages de superviseurs et collègues — publiés après validation.',
-      'rec.empty': 'Aucune recommandation publiée pour le moment.',
-      'rec.formKicker': 'Espace superviseur',
-      'rec.formTitle': 'Laisser une recommandation',
-      'rec.formNote': 'Elle n\'apparaîtra sur le portfolio qu\'après validation avec mon mot de passe.',
-      'rec.nameLabel': 'Votre nom',
-      'rec.placeLabel': 'Où avons-nous travaillé ensemble ?',
-      'rec.messageLabel': 'Votre recommandation',
-      'rec.namePlaceholder': 'Prénom et nom',
-      'rec.placePlaceholder': 'Entreprise, équipe ou projet',
-      'rec.messagePlaceholder': 'Quelques lignes sur notre collaboration...',
-      'rec.submit': 'Envoyer pour validation',
-      'rec.success': 'Merci. Votre recommandation est en attente. Elle sera publiée une fois validée sur le site.',
-      'rec.errorRequired': 'Veuillez remplir les trois champs.',
-      'rec.workedAt': 'Collaboration',
-      'admin.open': 'Valider',
-      'admin.title': 'Valider une recommandation',
-      'admin.pinHint': 'Mot de passe requis pour approuver ou refuser.',
-      'admin.pinLabel': 'Mot de passe',
-      'admin.unlock': 'Ouvrir',
-      'admin.pinError': 'Mot de passe incorrect.',
-      'admin.pendingTitle': 'En attente de validation',
-      'admin.none': 'Aucune recommandation en attente.',
-      'admin.approve': 'Approuver',
-      'admin.reject': 'Refuser',
       'footer.rights': 'Tous droits réservés.',
       'footer.top': 'Retour en haut ↑',
     },
@@ -138,18 +95,15 @@
       'nav.experience': 'Experience',
       'nav.projects': 'Projects',
       'nav.skills': 'Skills',
-      'nav.recommendations': 'Recommendations',
       'nav.contact': 'Contact me',
       'nav.menuOpen': 'Open menu',
       'nav.langSwitch': 'Switch to French',
-      'nav.themeDark': 'Enable dark mode',
-      'nav.themeLight': 'Enable light mode',
       'hero.eyebrow': 'Seeking an internship · Winter 2027',
       'hero.title': 'Hi, I\'m <span class="accent">Vernens Charles</span>.<br />Junior Web Developer<span class="accent-dot">.</span>',
       'hero.lead': 'Web development student at the <strong>Université de Sherbrooke</strong> (Quebec). My internship at <strong>Strateginc Groupe Financier</strong> ended in August 2026. I am now looking for a <strong>Winter 2027 internship</strong>.',
       'hero.btnProjects': 'View my projects',
-      'hero.btnContact': 'Employer contact →',
-      'hero.metaProjects': 'projects completed',
+      'hero.btnContact': 'Contact me →',
+      'hero.metaProjects': 'featured project',
       'hero.metaTech': 'technologies mastered',
       'hero.metaYear': 'current year',
       'hero.badge': 'Open to opportunities',
@@ -209,50 +163,10 @@
       'skills.git': 'Git and GitHub',
       'skills.teamwork': 'Teamwork',
       'skills.communication': 'Communication',
-      'contact.title': 'Hire me for Winter 2027.',
-      'contact.sub': 'I am looking for a computer science internship for Winter 2027 — development, automation, analysis, or any other IT role. Employers: use the form on the right and I will get back to you quickly.',
-      'contact.openForm': 'Open the form',
-      'contact.formKicker': 'Employer form',
+      'contact.title': 'Contact me',
+      'contact.sub': 'Have a question, a project, or an opportunity? Send me an email — I will get back to you as soon as I can.',
       'contact.linkedin': 'LinkedIn',
       'contact.github': 'GitHub',
-      'contact.nameLabel': 'Name',
-      'contact.companyLabel': 'Company',
-      'contact.emailLabel': 'Email',
-      'contact.messageLabel': 'Message',
-      'contact.namePlaceholder': 'Your name',
-      'contact.companyPlaceholder': 'Company name',
-      'contact.emailPlaceholder': 'your.email@example.com',
-      'contact.messagePlaceholder': 'Tell me about the Winter 2027 internship...',
-      'contact.submit': 'Send message',
-      'contact.success': 'Thanks! Your email client will open to send the message.',
-      'contact.errorRequired': 'Please fill in all required fields.',
-      'contact.errorEmail': 'Please enter a valid email address.',
-      'rec.title': 'Recommendations',
-      'rec.sub': 'Testimonials from supervisors and colleagues — published after validation.',
-      'rec.empty': 'No published recommendations yet.',
-      'rec.formKicker': 'Supervisor space',
-      'rec.formTitle': 'Leave a recommendation',
-      'rec.formNote': 'It will appear on the portfolio only after I approve it with my password.',
-      'rec.nameLabel': 'Your name',
-      'rec.placeLabel': 'Where did we work together?',
-      'rec.messageLabel': 'Your recommendation',
-      'rec.namePlaceholder': 'First and last name',
-      'rec.placePlaceholder': 'Company, team, or project',
-      'rec.messagePlaceholder': 'A few lines about our collaboration...',
-      'rec.submit': 'Send for review',
-      'rec.success': 'Thank you. Your recommendation is pending. It will be published once it is approved on the site.',
-      'rec.errorRequired': 'Please fill in all three fields.',
-      'rec.workedAt': 'Worked together at',
-      'admin.open': 'Approve',
-      'admin.title': 'Approve a recommendation',
-      'admin.pinHint': 'Password required to approve or reject.',
-      'admin.pinLabel': 'Password',
-      'admin.unlock': 'Unlock',
-      'admin.pinError': 'Incorrect password.',
-      'admin.pendingTitle': 'Waiting for approval',
-      'admin.none': 'No pending recommendations.',
-      'admin.approve': 'Approve',
-      'admin.reject': 'Reject',
       'footer.rights': 'All rights reserved.',
       'footer.top': 'Back to top ↑',
     },
@@ -262,14 +176,12 @@
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   const langToggle = document.getElementById('langToggle');
-  const themeToggle = document.getElementById('themeToggle');
   const yearEl = document.getElementById('year');
   const portrait = document.getElementById('portrait');
-  const starsCanvas = document.getElementById('stars');
+  const codeCanvas = document.getElementById('codeRain');
   const metaDescription = document.querySelector('meta[name="description"]');
 
   let currentLang = localStorage.getItem('lang') || 'fr';
-  let currentTheme = localStorage.getItem('theme') || 'dark';
 
   const t = (key) => translations[currentLang][key] || translations.fr[key] || key;
 
@@ -325,26 +237,6 @@
       menuToggle.setAttribute('aria-label', t('nav.menuOpen'));
     }
 
-    updateThemeToggleLabel();
-    if (typeof renderApprovedRecs === 'function') renderApprovedRecs();
-    if (typeof renderAdminPending === 'function') renderAdminPending();
-  };
-
-  let renderApprovedRecs = () => {};
-  let renderAdminPending = () => {};
-
-  const updateThemeToggleLabel = () => {
-    if (!themeToggle) return;
-    const key = currentTheme === 'dark' ? 'nav.themeLight' : 'nav.themeDark';
-    themeToggle.setAttribute('aria-label', t(key));
-    themeToggle.setAttribute('data-i18n-aria', key);
-  };
-
-  const setTheme = (theme) => {
-    currentTheme = theme;
-    localStorage.setItem('theme', theme);
-    document.documentElement.setAttribute('data-theme', theme);
-    updateThemeToggleLabel();
   };
 
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -384,13 +276,6 @@
     });
   }
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    });
-  }
-
-  setTheme(currentTheme);
   setLanguage(currentLang);
 
   // Reveal au scroll
@@ -464,12 +349,15 @@
     });
   }
 
-  // Champ d'étoiles
-  if (starsCanvas && !prefersReducedMotion) {
-    const ctx = starsCanvas.getContext('2d');
-    let stars = [];
+  // Pluie de code (fond « dev »)
+  if (codeCanvas && !prefersReducedMotion) {
+    const ctx = codeCanvas.getContext('2d');
+    const glyphs = '01アイウエオカキ01010123456789ABCDEF<>{}[]=;const let async await return if () => /#API Git SQL React'.split('');
     let width = 0;
     let height = 0;
+    let fontSize = 15;
+    let columns = 0;
+    let drops = [];
     let animationId = null;
     let visible = true;
 
@@ -477,36 +365,41 @@
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       width = window.innerWidth;
       height = window.innerHeight;
-      starsCanvas.width = width * dpr;
-      starsCanvas.height = height * dpr;
-      starsCanvas.style.width = `${width}px`;
-      starsCanvas.style.height = `${height}px`;
+      codeCanvas.width = width * dpr;
+      codeCanvas.height = height * dpr;
+      codeCanvas.style.width = `${width}px`;
+      codeCanvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      const count = Math.floor((width * height) / 14000);
-      stars = Array.from({ length: count }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        r: Math.random() * 1.4 + 0.2,
-        a: Math.random() * 0.7 + 0.15,
-        speed: Math.random() * 0.35 + 0.08,
-        phase: Math.random() * Math.PI * 2,
-      }));
+      fontSize = Math.max(13, Math.min(18, Math.round(width / 90)));
+      columns = Math.ceil(width / fontSize);
+      drops = Array.from({ length: columns }, () => Math.random() * -40);
     };
 
-    const draw = (t) => {
+    const draw = () => {
       if (!visible) {
         animationId = requestAnimationFrame(draw);
         return;
       }
-      ctx.clearRect(0, 0, width, height);
-      for (const s of stars) {
-        const twinkle = 0.55 + 0.45 * Math.sin(t * 0.0015 * s.speed + s.phase);
-        ctx.beginPath();
-        ctx.fillStyle = `rgba(228, 228, 231, ${s.a * twinkle})`;
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fill();
+      ctx.fillStyle = 'rgba(2, 6, 23, 0.12)';
+      ctx.fillRect(0, 0, width, height);
+      ctx.font = `500 ${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
+
+      for (let i = 0; i < columns; i += 1) {
+        const char = glyphs[Math.floor(Math.random() * glyphs.length)];
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+        const head = Math.random() > 0.975;
+        ctx.fillStyle = head
+          ? 'rgba(110, 231, 183, 0.95)'
+          : `rgba(34, 211, 238, ${0.15 + Math.random() * 0.35})`;
+        ctx.fillText(char, x, y);
+
+        if (y > height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i] += 0.55 + Math.random() * 0.45;
       }
+
       animationId = requestAnimationFrame(draw);
     };
 
@@ -543,246 +436,4 @@
     window.addEventListener('scroll', setActive, { passive: true });
   }
 
-  // Formulaire de contact (mailto)
-  const contactForm = document.getElementById('contactForm');
-  const formStatus = document.getElementById('formStatus');
-  const CONTACT_EMAIL = 'chav1301@usherbrooke.ca';
-
-  if (contactForm) {
-    const nameInput = document.getElementById('contactName');
-    const companyInput = document.getElementById('contactCompany');
-    const emailInput = document.getElementById('contactEmail');
-    const messageInput = document.getElementById('contactMessage');
-    const fields = [nameInput, emailInput, messageInput].filter(Boolean);
-
-    const showStatus = (message, type) => {
-      if (!formStatus) return;
-      formStatus.hidden = false;
-      formStatus.textContent = message;
-      formStatus.classList.remove('is-success', 'is-error');
-      formStatus.classList.add(type === 'success' ? 'is-success' : 'is-error');
-    };
-
-    const clearInvalid = () => {
-      fields.forEach((field) => field.classList.remove('is-invalid'));
-    };
-
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      clearInvalid();
-
-      const name = nameInput?.value.trim() || '';
-      const company = companyInput?.value.trim() || '';
-      const email = emailInput?.value.trim() || '';
-      const message = messageInput?.value.trim() || '';
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-      if (!name || !email || !message) {
-        fields.forEach((field) => {
-          if (!field.value.trim()) field.classList.add('is-invalid');
-        });
-        showStatus(t('contact.errorRequired'), 'error');
-        return;
-      }
-
-      if (!emailOk) {
-        emailInput?.classList.add('is-invalid');
-        showStatus(t('contact.errorEmail'), 'error');
-        return;
-      }
-
-      const subject = encodeURIComponent(
-        currentLang === 'en'
-          ? `Winter 2027 internship — ${name}${company ? ` (${company})` : ''}`
-          : `Stage hiver 2027 — ${name}${company ? ` (${company})` : ''}`
-      );
-      const body = encodeURIComponent(
-        currentLang === 'en'
-          ? `Name: ${name}\nCompany: ${company || '—'}\nEmail: ${email}\n\nMessage:\n${message}`
-          : `Nom : ${name}\nEntreprise : ${company || '—'}\nEmail : ${email}\n\nMessage :\n${message}`
-      );
-
-      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-      showStatus(t('contact.success'), 'success');
-      contactForm.reset();
-    });
-
-    fields.forEach((field) => {
-      field.addEventListener('input', () => {
-        field.classList.remove('is-invalid');
-        if (formStatus && !formStatus.hidden && formStatus.classList.contains('is-error')) {
-          formStatus.hidden = true;
-        }
-      });
-    });
-  }
-
-  // Recommandations + modération
-  const REC_PENDING_KEY = 'portfolio_rec_pending';
-  const REC_APPROVED_KEY = 'portfolio_rec_approved';
-  const ADMIN_PIN = '2003';
-  const recApprovedEl = document.getElementById('recApproved');
-  const recForm = document.getElementById('recForm');
-  const recStatus = document.getElementById('recStatus');
-  const adminPinForm = document.getElementById('adminPinForm');
-  const adminPin = document.getElementById('adminPin');
-  const adminPinStatus = document.getElementById('adminPinStatus');
-  const adminBody = document.getElementById('adminBody');
-  const adminPending = document.getElementById('adminPending');
-  let publishedSeed = [];
-  let adminUnlocked = false;
-
-  const readList = (key) => {
-    try {
-      const raw = localStorage.getItem(key);
-      const parsed = raw ? JSON.parse(raw) : [];
-      return Array.isArray(parsed) ? parsed : [];
-    } catch {
-      return [];
-    }
-  };
-
-  const writeList = (key, list) => {
-    localStorage.setItem(key, JSON.stringify(list));
-  };
-
-  const uid = () => `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-
-  const escapeHtml = (value) =>
-    String(value)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-
-  const mergedApproved = () => {
-    const local = readList(REC_APPROVED_KEY);
-    const map = new Map();
-    [...publishedSeed, ...local].forEach((item) => {
-      if (item && item.id) map.set(item.id, item);
-    });
-    return [...map.values()];
-  };
-
-  renderApprovedRecs = () => {
-    if (!recApprovedEl) return;
-    const items = mergedApproved();
-    recApprovedEl.querySelectorAll('.rec-card').forEach((card) => card.remove());
-    items.forEach((item) => {
-      const article = document.createElement('article');
-      article.className = 'rec-card';
-      article.innerHTML = `
-        <p class="rec-quote">${escapeHtml(item.message)}</p>
-        <div class="rec-meta">
-          <strong>${escapeHtml(item.name)}</strong>
-          <span>${escapeHtml(t('rec.workedAt'))} ${escapeHtml(item.workplace)}</span>
-        </div>
-      `;
-      recApprovedEl.appendChild(article);
-    });
-  };
-
-  renderAdminPending = () => {
-    if (!adminPending) return;
-    const pending = readList(REC_PENDING_KEY);
-    if (!pending.length) {
-      adminPending.innerHTML = `<p class="admin-none">${t('admin.none')}</p>`;
-      return;
-    }
-    adminPending.innerHTML = `<h3>${t('admin.pendingTitle')}</h3>` + pending.map((item) => `
-      <article class="admin-card" data-id="${escapeHtml(item.id)}">
-        <p class="rec-quote">${escapeHtml(item.message)}</p>
-        <p><strong>${escapeHtml(item.name)}</strong> · ${escapeHtml(item.workplace)}</p>
-        <div class="admin-actions">
-          <button type="button" class="btn btn-primary" data-action="approve">${t('admin.approve')}</button>
-          <button type="button" class="btn btn-ghost" data-action="reject">${t('admin.reject')}</button>
-        </div>
-      </article>
-    `).join('');
-  };
-
-  const showRecStatus = (message, type) => {
-    if (!recStatus) return;
-    recStatus.hidden = false;
-    recStatus.textContent = message;
-    recStatus.classList.remove('is-success', 'is-error');
-    recStatus.classList.add(type === 'success' ? 'is-success' : 'is-error');
-  };
-
-  if (recForm) {
-    recForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('recName')?.value.trim() || '';
-      const workplace = document.getElementById('recWorkplace')?.value.trim() || '';
-      const message = document.getElementById('recMessage')?.value.trim() || '';
-      const fields = ['recName', 'recWorkplace', 'recMessage']
-        .map((id) => document.getElementById(id))
-        .filter(Boolean);
-      fields.forEach((field) => field.classList.remove('is-invalid'));
-
-      if (!name || !workplace || !message) {
-        fields.forEach((field) => {
-          if (!field.value.trim()) field.classList.add('is-invalid');
-        });
-        showRecStatus(t('rec.errorRequired'), 'error');
-        return;
-      }
-
-      const rec = { id: uid(), name, workplace, message, createdAt: new Date().toISOString() };
-      writeList(REC_PENDING_KEY, [...readList(REC_PENDING_KEY), rec]);
-      showRecStatus(t('rec.success'), 'success');
-      recForm.reset();
-      if (adminUnlocked) renderAdminPending();
-    });
-  }
-
-  adminPinForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const typed = String(adminPinForm.querySelector('#adminPin')?.value || '')
-      .trim()
-      .replace(/\s+/g, '');
-    if (typed !== ADMIN_PIN) {
-      if (adminPinStatus) {
-        adminPinStatus.hidden = false;
-        adminPinStatus.textContent = t('admin.pinError');
-        adminPinStatus.classList.add('is-error');
-        adminPinStatus.classList.remove('is-success');
-      }
-      return;
-    }
-    adminUnlocked = true;
-    if (adminPinForm) adminPinForm.hidden = true;
-    if (adminBody) adminBody.hidden = false;
-    renderAdminPending();
-  });
-
-  adminPending?.addEventListener('click', (e) => {
-    const button = e.target.closest('button[data-action]');
-    const card = e.target.closest('.admin-card');
-    if (!button || !card || !adminUnlocked) return;
-    const id = card.getAttribute('data-id');
-    const pending = readList(REC_PENDING_KEY);
-    const rec = pending.find((item) => item.id === id);
-    if (!rec) return;
-    const nextPending = pending.filter((item) => item.id !== id);
-    writeList(REC_PENDING_KEY, nextPending);
-    if (button.getAttribute('data-action') === 'approve') {
-      writeList(REC_APPROVED_KEY, [...readList(REC_APPROVED_KEY), rec]);
-      renderApprovedRecs();
-    }
-    renderAdminPending();
-  });
-
-  fetch('recommendations.json')
-    .then((res) => (res.ok ? res.json() : { approved: [] }))
-    .then((data) => {
-      publishedSeed = Array.isArray(data?.approved) ? data.approved : [];
-      renderApprovedRecs();
-    })
-    .catch(() => {
-      renderApprovedRecs();
-    });
-
-  renderApprovedRecs();
 })();

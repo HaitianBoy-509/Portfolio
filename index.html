@@ -18,16 +18,13 @@
   <meta name="twitter:image" content="https://haitianboy-509.github.io/Portfolio/assets/photo-profil.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="ambient" aria-hidden="true">
-    <canvas id="stars" class="stars"></canvas>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="grain"></div>
+    <canvas id="codeRain" class="code-rain"></canvas>
+    <div class="ambient-vignette"></div>
   </div>
 
   <!-- ===== NAVIGATION ===== -->
@@ -43,15 +40,10 @@
         <a href="#experience" data-i18n="nav.experience">Expérience</a>
         <a href="#projects" data-i18n="nav.projects">Projets</a>
         <a href="#skills" data-i18n="nav.skills">Compétences</a>
-        <a href="#recommendations" data-i18n="nav.recommendations">Recommandations</a>
         <a href="#contact" class="nav-cta" data-i18n="nav.contact">Me contacter</a>
       </nav>
 
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre" data-i18n-aria="nav.themeDark">
-          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
-          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
-        </button>
         <button class="lang-toggle" id="langToggle" type="button" aria-label="Passer en anglais">EN</button>
         <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -83,10 +75,10 @@
                   </p>
                   <div class="hero-actions">
                       <a href="#projects" class="btn btn-primary" data-i18n="hero.btnProjects">Voir mes projets</a>
-                      <a href="#contact" class="btn btn-ghost" data-i18n="hero.btnContact">Contacter un employeur →</a>
+                      <a href="#contact" class="btn btn-ghost" data-i18n="hero.btnContact">Me contacter →</a>
                   </div>
                   <ul class="hero-meta">
-                      <li class="stat-card"><strong>3</strong><span data-i18n="hero.metaProjects">projets réalisés</span></li>
+                      <li class="stat-card"><strong>1</strong><span data-i18n="hero.metaProjects">projet mis en avant</span></li>
                       <li class="stat-card"><strong>8+</strong><span data-i18n="hero.metaTech">technologies maîtrisées</span></li>
                       <li class="stat-card"><strong>2026</strong><span data-i18n="hero.metaYear">année en cours</span></li>
                   </ul>
@@ -213,7 +205,7 @@
                   <p class="section-sub" data-i18n="projects.sub">Quelques réalisations qui illustrent ce que je sais faire.</p>
               </div>
 
-              <div class="projects-grid">
+              <div class="projects-grid projects-grid--single">
                   <article class="project-card reveal">
                       <div class="project-thumb">
                           <img src="assets/projet-ai-career.png"
@@ -237,60 +229,6 @@
                           </ul>
                           <div class="project-links">
                               <a href="https://github.com/HaitianBoy-509/Ai-Career_Assistant" target="_blank" rel="noopener noreferrer" data-i18n="proj.link">Voir sur GitHub →</a>
-                          </div>
-                      </div>
-                  </article>
-
-                  <article class="project-card reveal">
-                      <div class="project-thumb">
-                          <img src="assets/projet-habit-tracker.png"
-                               alt="Capture d'écran de l'application Habit Tracker"
-                               data-i18n-alt="proj1.alt"
-                               loading="lazy" />
-                      </div>
-                      <div class="project-body">
-                          <span class="project-tag" data-i18n="proj1.tag">Personnel · Mars 2026</span>
-                          <h3>Habit Tracker</h3>
-                          <p data-i18n="proj1.desc">
-                              Tracker d'habitudes minimaliste pour rester constant et discipliné.
-                              Design épuré, suivi quotidien et gamification (streaks, points, roue de récompenses).
-                              Version démo publiée sur GitHub — version finale en cours de développement.
-                          </p>
-                          <ul class="chip-list">
-                              <li>UI/UX</li>
-                              <li>Développement mobile</li>
-                              <li>Gamification</li>
-                          </ul>
-                          <div class="project-links">
-                              <a href="https://github.com/HaitianBoy-509/HabitTrackerApp" target="_blank" rel="noopener noreferrer" data-i18n="proj.link">Voir sur GitHub →</a>
-                          </div>
-                      </div>
-                  </article>
-
-                  <article class="project-card reveal">
-                      <div class="project-thumb">
-                          <img src="assets/projet-workout-calculator.png"
-                               alt="Capture d'écran de l'application Workout Calculator"
-                               data-i18n-alt="proj2.alt"
-                               loading="lazy" />
-                      </div>
-                      <div class="project-body">
-                          <span class="project-tag" data-i18n="proj2.tag">Personnel · Avril 2026</span>
-                          <h3>Workout Calculator</h3>
-                          <p data-i18n="proj2.desc">
-                              Application mobile fitness développée avec .NET MAUI.
-                              Calcul et structuration de séances selon des objectifs précis — force, hypertrophie ou endurance —
-                              avec timer de séance et plans d'entraînement détaillés.
-                              Version démo publiée sur GitHub — version finale en cours de développement.
-                          </p>
-                          <ul class="chip-list">
-                              <li>.NET MAUI</li>
-                              <li>C#</li>
-                              <li>Stockage local</li>
-                              <li>UI/UX</li>
-                          </ul>
-                          <div class="project-links">
-                              <a href="https://github.com/HaitianBoy-509/WorkoutCalculator" target="_blank" rel="noopener noreferrer" data-i18n="proj.link">Voir sur GitHub →</a>
                           </div>
                       </div>
                   </article>
@@ -343,127 +281,18 @@
           </div>
       </section>
 
-      <!-- ===== RECOMMENDATIONS ===== -->
-      <section id="recommendations" class="section">
-          <div class="container">
-              <div class="section-header reveal">
-                  <span class="section-num">05</span>
-                  <h2 data-i18n="rec.title">Recommandations</h2>
-                  <p class="section-sub" data-i18n="rec.sub">Témoignages de superviseurs et collègues — publiés après validation.</p>
-              </div>
-
-              <div class="rec-layout">
-                  <div class="rec-list reveal" id="recApproved"></div>
-
-                  <aside class="rec-panel reveal" data-reveal="fade-left">
-                      <span class="rec-kicker" data-i18n="rec.formKicker">Espace superviseur</span>
-                      <h3 data-i18n="rec.formTitle">Laisser une recommandation</h3>
-                      <p class="rec-note" data-i18n="rec.formNote">Elle n'apparaîtra sur le portfolio qu'après validation avec mon mot de passe.</p>
-                      <form class="contact-form rec-form" id="recForm" novalidate>
-                          <div class="form-field">
-                              <label for="recName" data-i18n="rec.nameLabel">Votre nom</label>
-                              <input type="text" id="recName" name="name" autocomplete="name" required
-                                  data-i18n-placeholder="rec.namePlaceholder" placeholder="Prénom et nom" />
-                          </div>
-                          <div class="form-field">
-                              <label for="recWorkplace" data-i18n="rec.placeLabel">Où avons-nous travaillé ensemble ?</label>
-                              <input type="text" id="recWorkplace" name="workplace" required
-                                  data-i18n-placeholder="rec.placePlaceholder" placeholder="Entreprise, équipe ou projet" />
-                          </div>
-                          <div class="form-field">
-                              <label for="recMessage" data-i18n="rec.messageLabel">Votre recommandation</label>
-                              <textarea id="recMessage" name="message" rows="6" required
-                                  data-i18n-placeholder="rec.messagePlaceholder" placeholder="Quelques lignes sur notre collaboration..."></textarea>
-                          </div>
-                          <button type="submit" class="btn btn-primary btn-lg form-submit" data-i18n="rec.submit">Envoyer pour validation</button>
-                          <p class="form-status" id="recStatus" role="status" aria-live="polite" hidden></p>
-                      </form>
-
-                      <div class="rec-owner">
-                          <h3 data-i18n="admin.title">Valider une recommandation</h3>
-                          <form class="admin-pin" id="adminPinForm">
-                              <p data-i18n="admin.pinHint">Mot de passe requis pour approuver ou refuser.</p>
-                              <div class="form-field">
-                                  <label for="adminPin" data-i18n="admin.pinLabel">Mot de passe</label>
-                                  <input type="text" id="adminPin" name="pin" inputmode="numeric" autocomplete="off" />
-                              </div>
-                              <button type="submit" class="btn btn-primary" data-i18n="admin.unlock">Ouvrir</button>
-                              <p class="form-status" id="adminPinStatus" role="status" hidden></p>
-                          </form>
-                          <div class="admin-body" id="adminBody" hidden>
-                              <div id="adminPending" class="admin-pending"></div>
-                          </div>
-                      </div>
-                  </aside>
-              </div>
-          </div>
-      </section>
-
       <!-- ===== CONTACT ===== -->
       <section id="contact" class="section contact">
-          <div class="container contact-layout reveal">
-              <div class="contact-intro">
-                  <h2 data-i18n="contact.title">Recrutez-moi pour l'hiver 2027.</h2>
-                  <p data-i18n="contact.sub">Je recherche un stage en informatique pour l'hiver 2027 — développement, automatisation, analyse, ou tout autre rôle en TI. Employeurs : utilisez le formulaire ci-contre, je vous réponds rapidement.</p>
-                  <a href="#contactForm" class="btn btn-primary btn-lg" data-i18n="contact.openForm">Accéder au formulaire</a>
-                  <div class="social-row">
-                      <a href="mailto:chav1301@usherbrooke.ca">chav1301@usherbrooke.ca</a>
-                      <span>·</span>
-                      <a href="https://www.linkedin.com/in/vernens-charles-383ba1315" target="_blank" rel="noopener noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
-                      <span>·</span>
-                      <a href="https://github.com/HaitianBoy-509" target="_blank" rel="noopener noreferrer" data-i18n="contact.github">GitHub</a>
-                  </div>
+          <div class="container contact-inner reveal">
+              <span class="section-num">05</span>
+              <h2 data-i18n="contact.title">Me contacter</h2>
+              <p class="contact-lead" data-i18n="contact.sub">Une question, un projet ou une opportunité ? Écrivez-moi — je vous réponds dès que possible.</p>
+              <a href="mailto:chav1301@usherbrooke.ca" class="btn btn-primary btn-lg">chav1301@usherbrooke.ca</a>
+              <div class="social-row">
+                  <a href="https://www.linkedin.com/in/vernens-charles-383ba1315" target="_blank" rel="noopener noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
+                  <span>·</span>
+                  <a href="https://github.com/HaitianBoy-509" target="_blank" rel="noopener noreferrer" data-i18n="contact.github">GitHub</a>
               </div>
-
-              <form class="contact-form" id="contactForm" novalidate>
-                  <p class="form-kicker" data-i18n="contact.formKicker">Formulaire employeur</p>
-                  <div class="form-field">
-                      <label for="contactName" data-i18n="contact.nameLabel">Nom</label>
-                      <input
-                          type="text"
-                          id="contactName"
-                          name="name"
-                          autocomplete="name"
-                          required
-                          data-i18n-placeholder="contact.namePlaceholder"
-                          placeholder="Votre nom" />
-                  </div>
-                  <div class="form-field">
-                      <label for="contactCompany" data-i18n="contact.companyLabel">Entreprise</label>
-                      <input
-                          type="text"
-                          id="contactCompany"
-                          name="company"
-                          autocomplete="organization"
-                          data-i18n-placeholder="contact.companyPlaceholder"
-                          placeholder="Nom de l'entreprise" />
-                  </div>
-                  <div class="form-field">
-                      <label for="contactEmail" data-i18n="contact.emailLabel">Email</label>
-                      <input
-                          type="email"
-                          id="contactEmail"
-                          name="email"
-                          autocomplete="email"
-                          required
-                          data-i18n-placeholder="contact.emailPlaceholder"
-                          placeholder="votre.email@exemple.com" />
-                  </div>
-                  <div class="form-field">
-                      <label for="contactMessage" data-i18n="contact.messageLabel">Message</label>
-                      <textarea
-                          id="contactMessage"
-                          name="message"
-                          rows="5"
-                          required
-                          data-i18n-placeholder="contact.messagePlaceholder"
-                          placeholder="Parlez-moi du stage hiver 2027..."></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-lg form-submit" data-i18n="contact.submit">
-                      Envoyer le message
-                  </button>
-                  <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
-              </form>
           </div>
       </section>
   </main>
@@ -475,6 +304,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2003b"></script>
+  <script src="script.js?v=2004"></script>
 </body>
 </html>
