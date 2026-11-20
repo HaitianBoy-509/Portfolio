@@ -349,15 +349,18 @@
     });
   }
 
-  // Pluie de code (fond « dev »)
+  // Fond terminal — pluie de code discrète
   if (codeCanvas && !prefersReducedMotion) {
     const ctx = codeCanvas.getContext('2d');
-    const glyphs = '01アイウエオカキ01010123456789ABCDEF<>{}[]=;const let async await return if () => /#API Git SQL React'.split('');
+    const glyphs = '01'.split('');
     let width = 0;
     let height = 0;
-    let fontSize = 15;
+    let fontSize = 16;
+    let step = 22;
     let columns = 0;
     let drops = [];
+    let speeds = [];
+    let active = [];
     let animationId = null;
     let visible = true;
 
@@ -370,9 +373,12 @@
       codeCanvas.style.width = `${width}px`;
       codeCanvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      fontSize = Math.max(13, Math.min(18, Math.round(width / 90)));
-      columns = Math.ceil(width / fontSize);
-      drops = Array.from({ length: columns }, () => Math.random() * -40);
+      step = Math.max(20, Math.min(28, Math.round(width / 72)));
+      fontSize = Math.round(step * 0.72);
+      columns = Math.ceil(width / step);
+      drops = Array.from({ length: columns }, () => Math.random() * -height);
+      speeds = Array.from({ length: columns }, () => 0.35 + Math.random() * 0.55);
+      active = Array.from({ length: columns }, () => Math.random() > 0.42);
     };
 
     const draw = () => {
@@ -380,24 +386,25 @@
         animationId = requestAnimationFrame(draw);
         return;
       }
-      ctx.fillStyle = 'rgba(2, 6, 23, 0.12)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
       ctx.fillRect(0, 0, width, height);
-      ctx.font = `500 ${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
+      ctx.font = `400 ${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
 
       for (let i = 0; i < columns; i += 1) {
+        if (!active[i]) continue;
         const char = glyphs[Math.floor(Math.random() * glyphs.length)];
-        const x = i * fontSize;
-        const y = drops[i] * fontSize;
-        const head = Math.random() > 0.975;
+        const x = i * step + step * 0.15;
+        const y = drops[i];
+        const head = Math.random() > 0.992;
         ctx.fillStyle = head
-          ? 'rgba(110, 231, 183, 0.95)'
-          : `rgba(34, 211, 238, ${0.15 + Math.random() * 0.35})`;
+          ? 'rgba(74, 222, 128, 0.28)'
+          : `rgba(113, 113, 122, ${0.04 + Math.random() * 0.07})`;
         ctx.fillText(char, x, y);
 
-        if (y > height && Math.random() > 0.975) {
-          drops[i] = 0;
+        if (y > height + 40 && Math.random() > 0.992) {
+          drops[i] = -20 - Math.random() * 120;
         }
-        drops[i] += 0.55 + Math.random() * 0.45;
+        drops[i] += speeds[i];
       }
 
       animationId = requestAnimationFrame(draw);
