@@ -179,7 +179,6 @@
   const yearEl = document.getElementById('year');
   const portrait = document.getElementById('portrait');
   const codeDrift = document.getElementById('codeDrift');
-  const techMesh = document.getElementById('techMesh');
   const metaDescription = document.querySelector('meta[name="description"]');
 
   let currentLang = localStorage.getItem('lang') || 'fr';
@@ -350,20 +349,22 @@
     });
   }
 
-  // Code défilant léger (fond blanc)
+  // Colonnes de caractères (style Matrix, fond blanc)
   if (codeDrift && !prefersReducedMotion) {
     const ctx = codeDrift.getContext('2d');
-    const tokens = 'const let async await return if else for while import export => {}[];01git npm sql api react node ts jsx html css true false null'.split(/\s+/);
-    const glyphPool = tokens.join('').split('').concat(tokens);
+    const CHARSET = '0123456789ABCDEF<>{}[];=+-*/&|?#@$%';
     let width = 0;
     let height = 0;
-    let step = 26;
-    let fontSize = 12;
+    let fontSize = 16;
+    let columnStep = 20;
     let columns = 0;
     let drops = [];
     let speeds = [];
+    let glyphs = [];
     let animationId = null;
     let visible = true;
+
+    const randChar = () => CHARSET[Math.floor(Math.random() * CHARSET.length)];
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -374,18 +375,12 @@
       codeDrift.style.width = `${width}px`;
       codeDrift.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      step = Math.max(22, Math.min(32, Math.round(width / 58)));
-      fontSize = Math.round(step * 0.5);
-      columns = Math.ceil(width / step);
-      drops = Array.from({ length: columns }, () => Math.random() * -height);
-      speeds = Array.from({ length: columns }, () => 0.25 + Math.random() * 0.4);
-    };
-
-    const pickGlyph = () => {
-      if (Math.random() > 0.65) {
-        return tokens[Math.floor(Math.random() * tokens.length)].slice(0, 8);
-      }
-      return glyphPool[Math.floor(Math.random() * glyphPool.length)];
+      columnStep = Math.max(18, Math.min(24, Math.round(width / 70)));
+      fontSize = columnStep - 4;
+      columns = Math.ceil(width / columnStep);
+      drops = Array.from({ length: columns }, () => Math.random() * height);
+      speeds = Array.from({ length: columns }, () => 1.2 + Math.random() * 2.2);
+      glyphs = Array.from({ length: columns }, () => randChar());
     };
 
     const draw = () => {
@@ -393,114 +388,27 @@
         animationId = requestAnimationFrame(draw);
         return;
       }
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.14)';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
       ctx.fillRect(0, 0, width, height);
-      ctx.font = `400 ${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
+      ctx.font = `500 ${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
       ctx.textBaseline = 'top';
 
       for (let i = 0; i < columns; i += 1) {
-        if (i % 2 === 0 && Math.random() > 0.88) continue;
-        const text = pickGlyph();
-        const x = i * step;
+        const x = i * columnStep + 2;
         const y = drops[i];
-        const head = Math.random() > 0.985;
-        ctx.fillStyle = head
-          ? 'rgba(37, 99, 235, 0.22)'
-          : `rgba(100, 116, 139, ${0.05 + Math.random() * 0.06})`;
-        ctx.fillText(text, x, y);
+        const head = glyphs[i];
+        ctx.fillStyle = 'rgba(99, 102, 241, 0.38)';
+        ctx.fillText(head, x, y);
+        ctx.fillStyle = 'rgba(148, 163, 184, 0.14)';
+        ctx.fillText(randChar(), x, y - fontSize * 1.15);
+        ctx.fillStyle = 'rgba(148, 163, 184, 0.08)';
+        ctx.fillText(randChar(), x, y - fontSize * 2.3);
 
-        if (y > height + 30 && Math.random() > 0.985) {
-          drops[i] = -40 - Math.random() * 180;
+        if (y > height + fontSize * 4 && Math.random() > 0.975) {
+          drops[i] = -fontSize * (4 + Math.random() * 12);
         }
         drops[i] += speeds[i];
-      }
-
-      animationId = requestAnimationFrame(draw);
-    };
-
-    resize();
-    animationId = requestAnimationFrame(draw);
-    window.addEventListener('resize', resize, { passive: true });
-
-    document.addEventListener('visibilitychange', () => {
-      visible = document.visibilityState === 'visible';
-    });
-
-    window.addEventListener('beforeunload', () => {
-      if (animationId) cancelAnimationFrame(animationId);
-    });
-  }
-
-  // Réseau de nœuds — animation informatique discrète
-  if (techMesh && !prefersReducedMotion) {
-    const ctx = techMesh.getContext('2d');
-    const LINK_DIST = 140;
-    const NODE_COUNT = 22;
-    let width = 0;
-    let height = 0;
-    let nodes = [];
-    let animationId = null;
-    let visible = true;
-
-    const seedNodes = () => {
-      nodes = Array.from({ length: NODE_COUNT }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        r: 1.6 + Math.random() * 1.2,
-      }));
-    };
-
-    const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = window.innerWidth;
-      height = window.innerHeight;
-      techMesh.width = width * dpr;
-      techMesh.height = height * dpr;
-      techMesh.style.width = `${width}px`;
-      techMesh.style.height = `${height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      seedNodes();
-    };
-
-    const draw = () => {
-      if (!visible) {
-        animationId = requestAnimationFrame(draw);
-        return;
-      }
-      ctx.clearRect(0, 0, width, height);
-
-      for (const node of nodes) {
-        node.x += node.vx;
-        node.y += node.vy;
-        if (node.x < 0 || node.x > width) node.vx *= -1;
-        if (node.y < 0 || node.y > height) node.vy *= -1;
-      }
-
-      for (let i = 0; i < nodes.length; i += 1) {
-        for (let j = i + 1; j < nodes.length; j += 1) {
-          const a = nodes[i];
-          const b = nodes[j];
-          const dx = a.x - b.x;
-          const dy = a.y - b.y;
-          const dist = Math.hypot(dx, dy);
-          if (dist > LINK_DIST) continue;
-          const alpha = (1 - dist / LINK_DIST) * 0.14;
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(37, 99, 235, ${alpha})`;
-          ctx.lineWidth = 1;
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-
-      for (const node of nodes) {
-        ctx.beginPath();
-        ctx.fillStyle = 'rgba(37, 99, 235, 0.22)';
-        ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
-        ctx.fill();
+        if (Math.random() > 0.92) glyphs[i] = randChar();
       }
 
       animationId = requestAnimationFrame(draw);
