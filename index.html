@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2012" />
+  <link rel="stylesheet" href="styles.css?v=2013" />
 </head>
 <body>
   <div class="ambient" aria-hidden="true"></div>
@@ -106,37 +106,44 @@
           <div class="container">
               <div class="section-header reveal">
                   <span class="section-num">01</span>
-                  <h2 data-i18n="about.title">À propos de moi</h2>
-                  <p class="section-sub" data-i18n="about.sub">Un peu de contexte sur mon parcours et ce qui m'anime.</p>
+                  <h2 data-i18n="about.title">Centre d'aide en informatique</h2>
+                  <p class="section-sub" data-i18n="about.sub">Mon rôle de coordonnateur à l'Université de Sherbrooke.</p>
               </div>
 
-              <div class="about-grid">
-                  <div class="about-text reveal">
-                      <p data-i18n-html="about.p1">
-                          Je suis actuellement étudiant en <strong>développement web</strong> à l'<strong>Université de Sherbrooke</strong> (Québec),
-                          où je poursuis un <strong>baccalauréat en informatique</strong>.
-                          L'informatique, c'est ce que j'ai toujours voulu faire : comprendre comment les choses fonctionnent et leur donner vie à travers le code.
+              <div class="about-cai">
+                  <div class="about-cai-content reveal">
+                      <div class="about-cai-brand">
+                          <div class="about-udes-logo-wrap">
+                              <img src="assets/logo-udes.png" alt="Université de Sherbrooke" class="about-udes-logo" width="200" height="48" />
+                          </div>
+                          <div>
+                              <p class="about-cai-kicker" data-i18n="about.kicker">Université de Sherbrooke</p>
+                              <h3 class="about-cai-role" data-i18n="about.role">Coordonnateur — Centre d'aide en informatique</h3>
+                          </div>
+                      </div>
+                      <p class="about-cai-lead" data-i18n="about.p1">
+                          Je coordonne le Centre d'aide en informatique (CAI) de l'Université de Sherbrooke. Je veille à la qualité de l'accompagnement offert aux étudiants, au bon déroulement des activités du centre et à l'encadrement de l'équipe de tuteurs.
                       </p>
-                      <p data-i18n="about.p2">
-                          Au-delà des études, je consacre du temps à apprendre par la pratique : projets personnels,
-                          travail en équipe et résolution de problèmes concrets. Mon objectif est d'allier théorie solide et savoir-faire opérationnel.
-                      </p>
-                      <p data-i18n-html="about.p3">
-                          En dehors du travail et des études, je m'intéresse particulièrement à la <strong>musculation</strong> et au <strong>basket</strong>,
-                          ce qui m'a inspiré dans le développement de projets liés au suivi des performances sportives.
-                          Je suis également passionné par la musique, la création de contenu numérique et les projets personnels qui me permettent d'apprendre continuellement.
-                      </p>
+                      <ul class="about-cai-tags">
+                          <li data-i18n="about.tag1">Encadrement d'équipe</li>
+                          <li data-i18n="about.tag2">Soutien en programmation</li>
+                          <li data-i18n="about.tag3">Organisation du centre</li>
+                      </ul>
                   </div>
 
-                  <aside class="about-card reveal" data-reveal="fade-left">
-                      <h3 data-i18n="about.infoTitle">Informations</h3>
-                      <dl>
-                          <div><dt data-i18n="about.locationLabel">Localisation</dt><dd data-i18n="about.locationValue">Sherbrooke, Québec</dd></div>
-                          <div><dt data-i18n="about.emailLabel">Email</dt><dd><a href="mailto:chav1301@usherbrooke.ca">chav1301@usherbrooke.ca</a></dd></div>
-                          <div><dt data-i18n="about.studiesLabel">Études</dt><dd data-i18n="about.studiesValue">Bacc. informatique · Univ. de Sherbrooke</dd></div>
-                          <div><dt data-i18n="about.languagesLabel">Langues</dt><dd data-i18n="about.languagesValue">Créole, Français, Anglais</dd></div>
-                      </dl>
-                  </aside>
+                  <figure class="cai-photo-wrap reveal" data-reveal="fade-left" id="caiPhoto">
+                      <span class="cai-photo-corner cai-photo-corner-tl" aria-hidden="true"></span>
+                      <span class="cai-photo-corner cai-photo-corner-br" aria-hidden="true"></span>
+                      <span class="cai-photo-scan" aria-hidden="true"></span>
+                      <img src="assets/cai-equipe.png"
+                           class="cai-photo"
+                           data-i18n-alt="about.photoAlt"
+                           alt="Vernens Charles avec l'équipe du centre d'aide en informatique"
+                           loading="lazy"
+                           width="640"
+                           height="480" />
+                      <figcaption data-i18n="about.photoCaption">L'équipe du centre d'aide en informatique</figcaption>
+                  </figure>
               </div>
           </div>
       </section>
@@ -298,6 +305,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2012"></script>
+  <script src="script.js?v=2013"></script>
 </body>
 </html>
