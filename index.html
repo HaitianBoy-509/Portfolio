@@ -19,12 +19,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2009" />
+  <link rel="stylesheet" href="styles.css?v=2010" />
 </head>
 <body>
-  <div class="ambient" aria-hidden="true">
-    <canvas id="pcbCircuit" class="pcb-circuit"></canvas>
-  </div>
+  <div class="ambient" aria-hidden="true"></div>
 
   <!-- ===== NAVIGATION ===== -->
   <header class="navbar" id="navbar">
@@ -43,6 +41,10 @@
       </nav>
 
       <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre" data-i18n-aria="nav.themeDark">
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+        </button>
         <button class="lang-toggle" id="langToggle" type="button" aria-label="Passer en anglais">EN</button>
         <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -299,6 +301,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2009"></script>
+  <script src="script.js?v=2010"></script>
 </body>
 </html>

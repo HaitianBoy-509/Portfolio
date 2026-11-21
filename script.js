@@ -16,6 +16,8 @@
       'nav.contact': 'Me contacter',
       'nav.menuOpen': 'Ouvrir le menu',
       'nav.langSwitch': 'Passer en anglais',
+      'nav.themeDark': 'Activer le mode sombre',
+      'nav.themeLight': 'Activer le mode clair',
       'hero.eyebrow': 'À la recherche d\'un stage · Hiver 2027',
       'hero.title': 'Bonjour, je suis <span class="accent">Vernens Charles</span>.<br />Développeur web junior<span class="accent-dot">.</span>',
       'hero.lead': 'Étudiant en <strong>développement web</strong> à l\'<strong>Université de Sherbrooke</strong> (Québec). Mon stage chez <strong>Strateginc Groupe Financier</strong> s\'est terminé en août 2026. Je suis maintenant à la recherche d\'un <strong>stage pour l\'hiver 2027</strong>.',
@@ -98,6 +100,8 @@
       'nav.contact': 'Contact me',
       'nav.menuOpen': 'Open menu',
       'nav.langSwitch': 'Switch to French',
+      'nav.themeDark': 'Enable dark mode',
+      'nav.themeLight': 'Enable light mode',
       'hero.eyebrow': 'Seeking an internship · Winter 2027',
       'hero.title': 'Hi, I\'m <span class="accent">Vernens Charles</span>.<br />Junior Web Developer<span class="accent-dot">.</span>',
       'hero.lead': 'Web development student at the <strong>Université de Sherbrooke</strong> (Quebec). My internship at <strong>Strateginc Groupe Financier</strong> ended in August 2026. I am now looking for a <strong>Winter 2027 internship</strong>.',
@@ -176,12 +180,13 @@
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   const langToggle = document.getElementById('langToggle');
+  const themeToggle = document.getElementById('themeToggle');
   const yearEl = document.getElementById('year');
   const portrait = document.getElementById('portrait');
-  const pcbCircuit = document.getElementById('pcbCircuit');
   const metaDescription = document.querySelector('meta[name="description"]');
 
   let currentLang = localStorage.getItem('lang') || 'fr';
+  let currentTheme = localStorage.getItem('theme') || 'light';
 
   const t = (key) => translations[currentLang][key] || translations.fr[key] || key;
 
@@ -237,6 +242,21 @@
       menuToggle.setAttribute('aria-label', t('nav.menuOpen'));
     }
 
+    updateThemeToggleLabel();
+  };
+
+  const updateThemeToggleLabel = () => {
+    if (!themeToggle) return;
+    const key = currentTheme === 'dark' ? 'nav.themeLight' : 'nav.themeDark';
+    themeToggle.setAttribute('aria-label', t(key));
+    themeToggle.setAttribute('data-i18n-aria', key);
+  };
+
+  const setTheme = (theme) => {
+    currentTheme = theme;
+    localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+    updateThemeToggleLabel();
   };
 
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -276,6 +296,13 @@
     });
   }
 
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  setTheme(currentTheme);
   setLanguage(currentLang);
 
   // Reveal au scroll
@@ -346,248 +373,6 @@
 
     window.addEventListener('beforeunload', () => {
       if (rafId) cancelAnimationFrame(rafId);
-    });
-  }
-
-  // Arrière-plan PCB — pistes de circuit + impulsions
-  if (pcbCircuit) {
-    const ctx = pcbCircuit.getContext('2d');
-    const COLORS = {
-      bg: '#FFFFFF',
-      linePrimary: '#E4E9FF',
-      lineSecondary: '#EDF0FF',
-      node: '#C5D0FF',
-      pulse: '#718BFF',
-      pulseGlow: 'rgba(113, 139, 255, 0.28)',
-    };
-    const GRID = 28;
-    let width = 0;
-    let height = 0;
-    let paths = [];
-    let junctions = new Map();
-    let pulses = [];
-    let junctionGlow = new Map();
-    let animationId = null;
-    let visible = true;
-    const animate = !prefersReducedMotion;
-
-    const snap = (n) => Math.round(n / GRID) * GRID;
-    const nodeKey = (x, y) => `${x},${y}`;
-
-    const inContentZone = (x, y) => (
-      x > width * 0.21 && x < width * 0.79 && y > height * 0.14 && y < height * 0.86
-    );
-
-    const edgeSeed = () => {
-      const side = Math.floor(Math.random() * 4);
-      if (side === 0) return { x: snap(Math.random() * width), y: GRID };
-      if (side === 1) return { x: width - GRID, y: snap(Math.random() * height) };
-      if (side === 2) return { x: snap(Math.random() * width), y: height - GRID };
-      return { x: GRID, y: snap(Math.random() * height) };
-    };
-
-    const growPath = (start) => {
-      const points = [{ x: snap(start.x), y: snap(start.y) }];
-      let x = points[0].x;
-      let y = points[0].y;
-      let horizontal = Math.random() > 0.5;
-      const steps = 5 + Math.floor(Math.random() * 9);
-
-      for (let i = 0; i < steps; i += 1) {
-        if (Math.random() > 0.3) horizontal = !horizontal;
-        const unit = GRID * (1 + Math.floor(Math.random() * 4));
-        const dir = Math.random() > 0.5 ? 1 : -1;
-        const nx = horizontal ? x + dir * unit : x;
-        const ny = horizontal ? y : y + dir * unit;
-        const sx = Math.max(GRID, Math.min(width - GRID, snap(nx)));
-        const sy = Math.max(GRID, Math.min(height - GRID, snap(ny)));
-        if (inContentZone(sx, sy) && inContentZone(x, y)) continue;
-        if (sx === x && sy === y) continue;
-        x = sx;
-        y = sy;
-        points.push({ x, y });
-      }
-      return points.length > 2 ? { points, secondary: Math.random() > 0.45 } : null;
-    };
-
-    const indexJunctions = () => {
-      junctions = new Map();
-      paths.forEach((path, pathIdx) => {
-        path.points.forEach((pt, ptIdx) => {
-          const key = nodeKey(pt.x, pt.y);
-          if (!junctions.has(key)) junctions.set(key, []);
-          junctions.get(key).push({ pathIdx, ptIdx });
-        });
-      });
-    };
-
-    const buildCircuit = () => {
-      paths = [];
-      const target = Math.max(14, Math.min(26, Math.floor((width * height) / 55000)));
-      let guard = 0;
-      while (paths.length < target && guard < target * 8) {
-        guard += 1;
-        const path = growPath(edgeSeed());
-        if (path) paths.push(path);
-      }
-      indexJunctions();
-    };
-
-    const spawnPulse = () => {
-      if (!paths.length) return null;
-      const pathIdx = Math.floor(Math.random() * paths.length);
-      const segMax = paths[pathIdx].points.length - 2;
-      if (segMax < 0) return null;
-      return {
-        pathIdx,
-        segIdx: Math.floor(Math.random() * (segMax + 1)),
-        t: Math.random() * 0.4,
-        speed: 0.003 + Math.random() * 0.005,
-      };
-    };
-
-    const initPulses = () => {
-      pulses = [];
-      const count = animate ? Math.max(8, Math.min(16, Math.floor(paths.length * 0.7))) : 0;
-      for (let i = 0; i < count; i += 1) {
-        const pulse = spawnPulse();
-        if (pulse) {
-          pulse.t = Math.random();
-          pulses.push(pulse);
-        }
-      }
-    };
-
-    const pickBranch = (pulse, atPoint) => {
-      const key = nodeKey(atPoint.x, atPoint.y);
-      const options = junctions.get(key) || [];
-      if (options.length < 2 || Math.random() > 0.38) {
-        return { pathIdx: pulse.pathIdx, segIdx: pulse.segIdx, t: 0 };
-      }
-      const choice = options[Math.floor(Math.random() * options.length)];
-      const nextSeg = Math.min(choice.ptIdx, paths[choice.pathIdx].points.length - 2);
-      return { pathIdx: choice.pathIdx, segIdx: Math.max(0, nextSeg), t: 0 };
-    };
-
-    const drawStatic = () => {
-      ctx.fillStyle = COLORS.bg;
-      ctx.fillRect(0, 0, width, height);
-      ctx.lineCap = 'square';
-      ctx.lineJoin = 'miter';
-
-      for (const path of paths) {
-        ctx.strokeStyle = path.secondary ? COLORS.lineSecondary : COLORS.linePrimary;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(path.points[0].x, path.points[0].y);
-        for (let i = 1; i < path.points.length; i += 1) {
-          ctx.lineTo(path.points[i].x, path.points[i].y);
-        }
-        ctx.stroke();
-      }
-
-      junctions.forEach((_, key) => {
-        const [x, y] = key.split(',').map(Number);
-        const glow = junctionGlow.get(key) || 0;
-        ctx.beginPath();
-        ctx.fillStyle = glow > 0.05 ? `rgba(113, 139, 255, ${0.35 + glow * 0.4})` : COLORS.node;
-        ctx.arc(x, y, glow > 0.05 ? 3.6 : 2.6, 0, Math.PI * 2);
-        ctx.fill();
-      });
-    };
-
-    const drawPulses = () => {
-      for (const pulse of pulses) {
-        const path = paths[pulse.pathIdx];
-        if (!path) continue;
-        const a = path.points[pulse.segIdx];
-        const b = path.points[pulse.segIdx + 1];
-        if (!a || !b) continue;
-
-        const px = a.x + (b.x - a.x) * pulse.t;
-        const py = a.y + (b.y - a.y) * pulse.t;
-
-        ctx.beginPath();
-        ctx.fillStyle = COLORS.pulseGlow;
-        ctx.arc(px, py, 7, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.beginPath();
-        ctx.fillStyle = COLORS.pulse;
-        ctx.arc(px, py, 2.4, 0, Math.PI * 2);
-        ctx.fill();
-
-        const jKey = nodeKey(a.x, a.y);
-        junctionGlow.set(jKey, Math.min(1, (junctionGlow.get(jKey) || 0) + 0.15));
-      }
-
-      junctionGlow.forEach((val, key) => {
-        if (val <= 0.01) junctionGlow.delete(key);
-        else junctionGlow.set(key, val * 0.92);
-      });
-    };
-
-    const tickPulses = () => {
-      for (const pulse of pulses) {
-        pulse.t += pulse.speed;
-        const path = paths[pulse.pathIdx];
-        if (!path) continue;
-        if (pulse.t >= 1) {
-          const junction = path.points[pulse.segIdx + 1];
-          if (pulse.segIdx < path.points.length - 2) {
-            pulse.segIdx += 1;
-            pulse.t = 0;
-          } else if (junction) {
-            const next = pickBranch(pulse, junction);
-            pulse.pathIdx = next.pathIdx;
-            pulse.segIdx = next.segIdx;
-            pulse.t = next.t;
-          } else {
-            const fresh = spawnPulse();
-            if (fresh) Object.assign(pulse, fresh);
-          }
-        }
-      }
-    };
-
-    const draw = () => {
-      if (!visible) {
-        animationId = requestAnimationFrame(draw);
-        return;
-      }
-      drawStatic();
-      if (animate) {
-        drawPulses();
-        tickPulses();
-        animationId = requestAnimationFrame(draw);
-      }
-    };
-
-    const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = window.innerWidth;
-      height = window.innerHeight;
-      pcbCircuit.width = width * dpr;
-      pcbCircuit.height = height * dpr;
-      pcbCircuit.style.width = `${width}px`;
-      pcbCircuit.style.height = `${height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      buildCircuit();
-      initPulses();
-      junctionGlow = new Map();
-      if (!animate) drawStatic();
-    };
-
-    resize();
-    if (animate) {
-      animationId = requestAnimationFrame(draw);
-    }
-
-    window.addEventListener('resize', resize, { passive: true });
-    document.addEventListener('visibilitychange', () => {
-      visible = document.visibilityState === 'visible';
-    });
-    window.addEventListener('beforeunload', () => {
-      if (animationId) cancelAnimationFrame(animationId);
     });
   }
 
