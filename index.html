@@ -10,23 +10,28 @@
   <meta property="og:url" content="https://haitianboy-509.github.io/Portfolio/" />
   <meta property="og:title" content="Vernens Charles | Portfolio" />
   <meta property="og:description" content="Développeur web junior à l'Université de Sherbrooke. À la recherche d'un stage en informatique pour l'hiver 2027." />
-  <meta property="og:image" content="https://haitianboy-509.github.io/Portfolio/assets/photo-profil.png" />
+  <meta property="og:image" content="https://haitianboy-509.github.io/Portfolio/assets/photo-profil.jpg" />
   <meta property="og:locale" content="fr_CA" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vernens Charles | Portfolio" />
   <meta name="twitter:description" content="Développeur web junior à l'Université de Sherbrooke. À la recherche d'un stage en informatique pour l'hiver 2027." />
-  <meta name="twitter:image" content="https://haitianboy-509.github.io/Portfolio/assets/photo-profil.png" />
+  <meta name="twitter:image" content="https://haitianboy-509.github.io/Portfolio/assets/photo-profil.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2005" />
+  <link rel="stylesheet" href="styles.css?v=2006" />
 </head>
 <body>
   <div class="ambient" aria-hidden="true">
-    <canvas id="codeRain" class="code-rain"></canvas>
+    <canvas id="techMesh" class="tech-mesh"></canvas>
     <div class="ambient-grid"></div>
-    <div class="ambient-scanline"></div>
-    <div class="ambient-vignette"></div>
+    <div class="ambient-blob ambient-blob-1"></div>
+    <div class="ambient-blob ambient-blob-2"></div>
+    <div class="tech-snippets">
+      <div class="tech-snippet tech-snippet-1"><code>npm run build</code></div>
+      <div class="tech-snippet tech-snippet-2"><code>git commit -m "feat"</code></div>
+      <div class="tech-snippet tech-snippet-3"><code>SELECT * FROM users;</code></div>
+    </div>
   </div>
 
   <!-- ===== NAVIGATION ===== -->
@@ -85,12 +90,13 @@
                   <div class="portrait-wrap" id="portrait">
                       <div class="portrait-ring"></div>
                       <div class="portrait">
-                          <img src="assets/photo-profil.png"
+                          <img src="assets/photo-profil.jpg"
                                alt="Photo de profil de Vernens Charles"
                                class="portrait-photo"
                                data-i18n-alt="hero.photoAlt"
                                width="360"
-                               height="450" />
+                               height="450"
+                               fetchpriority="high" />
                           <div class="portrait-badge">
                               <span class="dot"></span> <span data-i18n="hero.badge">Ouvert aux opportunités</span>
                           </div>
@@ -301,6 +307,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2005"></script>
+  <script src="script.js?v=2006"></script>
 </body>
 </html>

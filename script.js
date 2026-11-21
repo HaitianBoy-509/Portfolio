@@ -178,7 +178,7 @@
   const langToggle = document.getElementById('langToggle');
   const yearEl = document.getElementById('year');
   const portrait = document.getElementById('portrait');
-  const codeCanvas = document.getElementById('codeRain');
+  const techMesh = document.getElementById('techMesh');
   const metaDescription = document.querySelector('meta[name="description"]');
 
   let currentLang = localStorage.getItem('lang') || 'fr';
@@ -349,36 +349,37 @@
     });
   }
 
-  // Fond terminal — pluie de code discrète
-  if (codeCanvas && !prefersReducedMotion) {
-    const ctx = codeCanvas.getContext('2d');
-    const glyphs = '01'.split('');
+  // Réseau de nœuds — animation informatique discrète
+  if (techMesh && !prefersReducedMotion) {
+    const ctx = techMesh.getContext('2d');
+    const LINK_DIST = 140;
+    const NODE_COUNT = 22;
     let width = 0;
     let height = 0;
-    let fontSize = 16;
-    let step = 22;
-    let columns = 0;
-    let drops = [];
-    let speeds = [];
-    let active = [];
+    let nodes = [];
     let animationId = null;
     let visible = true;
+
+    const seedNodes = () => {
+      nodes = Array.from({ length: NODE_COUNT }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: 1.6 + Math.random() * 1.2,
+      }));
+    };
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       width = window.innerWidth;
       height = window.innerHeight;
-      codeCanvas.width = width * dpr;
-      codeCanvas.height = height * dpr;
-      codeCanvas.style.width = `${width}px`;
-      codeCanvas.style.height = `${height}px`;
+      techMesh.width = width * dpr;
+      techMesh.height = height * dpr;
+      techMesh.style.width = `${width}px`;
+      techMesh.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      step = Math.max(20, Math.min(28, Math.round(width / 72)));
-      fontSize = Math.round(step * 0.72);
-      columns = Math.ceil(width / step);
-      drops = Array.from({ length: columns }, () => Math.random() * -height);
-      speeds = Array.from({ length: columns }, () => 0.35 + Math.random() * 0.55);
-      active = Array.from({ length: columns }, () => Math.random() > 0.42);
+      seedNodes();
     };
 
     const draw = () => {
@@ -386,25 +387,38 @@
         animationId = requestAnimationFrame(draw);
         return;
       }
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
-      ctx.fillRect(0, 0, width, height);
-      ctx.font = `400 ${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
+      ctx.clearRect(0, 0, width, height);
 
-      for (let i = 0; i < columns; i += 1) {
-        if (!active[i]) continue;
-        const char = glyphs[Math.floor(Math.random() * glyphs.length)];
-        const x = i * step + step * 0.15;
-        const y = drops[i];
-        const head = Math.random() > 0.992;
-        ctx.fillStyle = head
-          ? 'rgba(74, 222, 128, 0.28)'
-          : `rgba(113, 113, 122, ${0.04 + Math.random() * 0.07})`;
-        ctx.fillText(char, x, y);
+      for (const node of nodes) {
+        node.x += node.vx;
+        node.y += node.vy;
+        if (node.x < 0 || node.x > width) node.vx *= -1;
+        if (node.y < 0 || node.y > height) node.vy *= -1;
+      }
 
-        if (y > height + 40 && Math.random() > 0.992) {
-          drops[i] = -20 - Math.random() * 120;
+      for (let i = 0; i < nodes.length; i += 1) {
+        for (let j = i + 1; j < nodes.length; j += 1) {
+          const a = nodes[i];
+          const b = nodes[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist > LINK_DIST) continue;
+          const alpha = (1 - dist / LINK_DIST) * 0.14;
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(37, 99, 235, ${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
         }
-        drops[i] += speeds[i];
+      }
+
+      for (const node of nodes) {
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(37, 99, 235, 0.22)';
+        ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
+        ctx.fill();
       }
 
       animationId = requestAnimationFrame(draw);
