@@ -178,6 +178,7 @@
   const langToggle = document.getElementById('langToggle');
   const yearEl = document.getElementById('year');
   const portrait = document.getElementById('portrait');
+  const codeDrift = document.getElementById('codeDrift');
   const techMesh = document.getElementById('techMesh');
   const metaDescription = document.querySelector('meta[name="description"]');
 
@@ -346,6 +347,87 @@
 
     window.addEventListener('beforeunload', () => {
       if (rafId) cancelAnimationFrame(rafId);
+    });
+  }
+
+  // Code défilant léger (fond blanc)
+  if (codeDrift && !prefersReducedMotion) {
+    const ctx = codeDrift.getContext('2d');
+    const tokens = 'const let async await return if else for while import export => {}[];01git npm sql api react node ts jsx html css true false null'.split(/\s+/);
+    const glyphPool = tokens.join('').split('').concat(tokens);
+    let width = 0;
+    let height = 0;
+    let step = 26;
+    let fontSize = 12;
+    let columns = 0;
+    let drops = [];
+    let speeds = [];
+    let animationId = null;
+    let visible = true;
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      codeDrift.width = width * dpr;
+      codeDrift.height = height * dpr;
+      codeDrift.style.width = `${width}px`;
+      codeDrift.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      step = Math.max(22, Math.min(32, Math.round(width / 58)));
+      fontSize = Math.round(step * 0.5);
+      columns = Math.ceil(width / step);
+      drops = Array.from({ length: columns }, () => Math.random() * -height);
+      speeds = Array.from({ length: columns }, () => 0.25 + Math.random() * 0.4);
+    };
+
+    const pickGlyph = () => {
+      if (Math.random() > 0.65) {
+        return tokens[Math.floor(Math.random() * tokens.length)].slice(0, 8);
+      }
+      return glyphPool[Math.floor(Math.random() * glyphPool.length)];
+    };
+
+    const draw = () => {
+      if (!visible) {
+        animationId = requestAnimationFrame(draw);
+        return;
+      }
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.14)';
+      ctx.fillRect(0, 0, width, height);
+      ctx.font = `400 ${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
+      ctx.textBaseline = 'top';
+
+      for (let i = 0; i < columns; i += 1) {
+        if (i % 2 === 0 && Math.random() > 0.88) continue;
+        const text = pickGlyph();
+        const x = i * step;
+        const y = drops[i];
+        const head = Math.random() > 0.985;
+        ctx.fillStyle = head
+          ? 'rgba(37, 99, 235, 0.22)'
+          : `rgba(100, 116, 139, ${0.05 + Math.random() * 0.06})`;
+        ctx.fillText(text, x, y);
+
+        if (y > height + 30 && Math.random() > 0.985) {
+          drops[i] = -40 - Math.random() * 180;
+        }
+        drops[i] += speeds[i];
+      }
+
+      animationId = requestAnimationFrame(draw);
+    };
+
+    resize();
+    animationId = requestAnimationFrame(draw);
+    window.addEventListener('resize', resize, { passive: true });
+
+    document.addEventListener('visibilitychange', () => {
+      visible = document.visibilityState === 'visible';
+    });
+
+    window.addEventListener('beforeunload', () => {
+      if (animationId) cancelAnimationFrame(animationId);
     });
   }
 

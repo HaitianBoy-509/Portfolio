@@ -89,12 +89,53 @@ ul, ol { list-style: none; padding: 0; }
   overflow: hidden;
   background: var(--bg);
 }
+.code-drift {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.72;
+}
 .tech-mesh {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   opacity: 1;
+}
+.code-ticker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14%;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.4;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.code-ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  width: max-content;
+  padding-left: 56px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11.5px;
+  color: var(--text-mute);
+  white-space: nowrap;
+  animation: codeTicker 48s linear infinite;
+}
+.code-ticker-track span {
+  color: #64748b;
+}
+.code-ticker-track span::before {
+  content: '$ ';
+  color: var(--accent);
+  opacity: 0.7;
+}
+@keyframes codeTicker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 .ambient-grid {
   position: absolute;
@@ -152,6 +193,7 @@ ul, ol { list-style: none; padding: 0; }
 .tech-snippet-1 { top: 18%; right: 8%; animation-delay: 0s; }
 .tech-snippet-2 { top: 42%; left: 6%; animation-delay: -4.5s; }
 .tech-snippet-3 { bottom: 22%; right: 12%; animation-delay: -9s; }
+.tech-snippet-4 { top: 62%; right: 22%; animation-delay: -11s; }
 @keyframes snippetFloat {
   0%, 100% { opacity: 0; transform: translateY(8px); }
   15%, 55% { opacity: 0.85; transform: translateY(0); }
@@ -1421,7 +1463,8 @@ ul, ol { list-style: none; padding: 0; }
     transform: translateY(0);
     pointer-events: auto;
   }
-  .tech-snippet { display: none; }
+  .tech-snippet,
+  .code-ticker { display: none; }
   .nav-links a {
     padding: 14px 12px;
     font-size: 1.35rem;
