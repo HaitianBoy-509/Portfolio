@@ -701,15 +701,11 @@ ul, ol { list-style: none; padding: 0; }
   display: flex;
   align-items: center;
   gap: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   flex-wrap: wrap;
 }
-.about-cai-copy {
+.about-cai-panel .about-cai-lead {
   margin-bottom: 28px;
-}
-.about-cai-lead--second {
-  margin-top: 14px;
-  margin-bottom: 0;
 }
 .about-udes-logo-wrap {
   padding: 10px 14px;
