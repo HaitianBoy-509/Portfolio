@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2017" />
+  <link rel="stylesheet" href="styles.css?v=2018" />
 </head>
 <body>
   <div class="ambient" aria-hidden="true"></div>
@@ -223,34 +223,44 @@
                   <p class="section-sub" data-i18n="projects.sub">Quelques réalisations qui illustrent ce que je sais faire.</p>
               </div>
 
-              <div class="projects-grid projects-grid--single">
-                  <article class="project-card reveal">
-                      <div class="project-thumb">
+              <p class="projects-lead reveal" data-i18n="projects.lead">Projet phare — une application concrète pour les candidatures de stage.</p>
+
+              <article class="project-feature reveal">
+                  <div class="project-feature-media">
+                      <div class="project-thumb project-thumb--feature">
                           <img src="assets/projet-ai-career.png"
                                alt="Capture d'écran du tableau de bord AI Career"
                                data-i18n-alt="proj3.alt"
-                               loading="lazy" />
+                               loading="lazy"
+                               decoding="async"
+                               width="960"
+                               height="600" />
                       </div>
-                      <div class="project-body">
+                  </div>
+                  <div class="project-feature-body">
+                      <div class="project-feature-head">
                           <span class="project-tag" data-i18n="proj3.tag">Personnel · Août 2026</span>
-                          <h3>AI Career</h3>
-                          <p data-i18n="proj3.desc">
-                              Plateforme web destinée aux étudiants pour optimiser leurs candidatures de stage.
-                              Elle permet d'analyser et d'adapter un CV selon une offre, de générer des lettres
-                              de motivation ciblées, et de suivre les indicateurs clés (score ATS, taux de correspondance).
-                          </p>
-                          <ul class="chip-list">
+                          <h3 class="project-feature-title">AI Career</h3>
+                      </div>
+                      <p class="project-feature-desc" data-i18n="proj3.desc">
+                          Plateforme web destinée aux étudiants pour optimiser leurs candidatures de stage.
+                          Elle permet d'analyser et d'adapter un CV selon une offre, de générer des lettres
+                          de motivation ciblées, et de suivre les indicateurs clés (score ATS, taux de correspondance).
+                      </p>
+                      <div class="project-feature-stack">
+                          <span class="project-stack-label" data-i18n="projects.stack">Technologies</span>
+                          <ul class="chip-list chip-list--project">
                               <li>React</li>
                               <li>TypeScript</li>
                               <li>Node.js</li>
                               <li>UI/UX</li>
                           </ul>
-                          <div class="project-links">
-                              <a href="https://github.com/HaitianBoy-509/Ai-Career_Assistant" target="_blank" rel="noopener noreferrer" data-i18n="proj.link">Voir sur GitHub →</a>
-                          </div>
                       </div>
-                  </article>
-              </div>
+                      <div class="project-feature-actions">
+                          <a href="https://github.com/HaitianBoy-509/Ai-Career_Assistant" class="btn btn-ghost project-feature-btn" target="_blank" rel="noopener noreferrer" data-i18n="proj.link">Voir sur GitHub →</a>
+                      </div>
+                  </div>
+              </article>
           </div>
       </section>
 
@@ -322,6 +332,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2017"></script>
+  <script src="script.js?v=2018"></script>
 </body>
 </html>
