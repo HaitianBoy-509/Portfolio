@@ -987,8 +987,10 @@ ul, ol { list-style: none; padding: 0; }
   object-fit: contain;
 }
 .timeline-logo--strateginc {
-  max-width: 108px;
-  max-height: 44px;
+  width: 104px;
+  max-width: 104px;
+  max-height: 56px;
+  height: auto;
 }
 .timeline-logo--biosfera {
   max-width: 88px;
