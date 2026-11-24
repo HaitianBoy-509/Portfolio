@@ -1299,6 +1299,10 @@ ul, ol { list-style: none; padding: 0; }
   object-fit: contain;
   border-radius: 12px;
 }
+.cert-badge--ms {
+  object-fit: cover;
+  border-radius: 10px;
+}
 .cert-kicker {
   font-size: 10px;
   font-weight: 700;
