@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2018" />
+  <link rel="stylesheet" href="styles.css?v=2019" />
 </head>
 <body>
   <div class="ambient" aria-hidden="true"></div>
@@ -37,6 +37,7 @@
         <a href="#experience" data-i18n="nav.experience">Expérience</a>
         <a href="#projects" data-i18n="nav.projects">Projets</a>
         <a href="#skills" data-i18n="nav.skills">Compétences</a>
+        <a href="#certifications" data-i18n="nav.certifications">Certifications</a>
         <a href="#contact" class="nav-cta" data-i18n="nav.contact">Me contacter</a>
       </nav>
 
@@ -309,10 +310,52 @@
           </div>
       </section>
 
+      <!-- ===== CERTIFICATIONS ===== -->
+      <section id="certifications" class="section">
+          <div class="container">
+              <div class="section-header reveal">
+                  <span class="section-num">05</span>
+                  <h2 data-i18n="certifications.title">Certifications</h2>
+                  <p class="section-sub" data-i18n="certifications.sub">Badges vérifiables que j'ai obtenus en formation.</p>
+              </div>
+
+              <ul class="cert-grid">
+                  <li class="reveal">
+                      <article class="cert-card">
+                          <div class="cert-card-top">
+                              <div class="cert-badge-wrap">
+                                  <img src="assets/cert-cisco-intro-cybersecurity.png"
+                                       data-i18n-alt="cert1.badgeAlt"
+                                       alt="Badge Cisco — Introduction to Cybersecurity"
+                                       class="cert-badge"
+                                       width="88"
+                                       height="88"
+                                       loading="lazy"
+                                       decoding="async" />
+                              </div>
+                              <span class="cert-kicker" data-i18n="cert.label">Certification</span>
+                          </div>
+                          <h3 class="cert-title" data-i18n="cert1.title">Introduction to Cybersecurity</h3>
+                          <p class="cert-issuer" data-i18n="cert1.issuer">Cisco Networking Academy</p>
+                          <a class="cert-verify"
+                             href="https://www.credly.com/earner/earned/badge/9e80df10-4cc1-4655-9521-2e59f10ac11e"
+                             target="_blank"
+                             rel="noopener noreferrer">
+                              <span data-i18n="cert.verify">Vérifier le badge</span>
+                              <svg class="cert-verify-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                  <path d="M14 5h5v5M10 14 19 5M19 14v5h-5M5 10V5h5M5 19l4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                          </a>
+                      </article>
+                  </li>
+              </ul>
+          </div>
+      </section>
+
       <!-- ===== CONTACT ===== -->
       <section id="contact" class="section contact">
           <div class="container contact-inner reveal">
-              <span class="section-num">05</span>
+              <span class="section-num">06</span>
               <h2 data-i18n="contact.title">Me contacter</h2>
               <p class="contact-lead" data-i18n="contact.sub">Une question, un projet ou une opportunité ? Écrivez-moi — je vous réponds dès que possible.</p>
               <a href="mailto:chav1301@usherbrooke.ca" class="btn btn-primary btn-lg">chav1301@usherbrooke.ca</a>
@@ -332,6 +375,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2018"></script>
+  <script src="script.js?v=2019"></script>
 </body>
 </html>
