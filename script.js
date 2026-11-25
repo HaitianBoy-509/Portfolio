@@ -484,13 +484,13 @@
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const logicalW = 272;
-    const logicalH = 220;
+    const logicalW = 400;
+    const logicalH = 340;
     canvas.width = Math.floor(logicalW * dpr);
     canvas.height = Math.floor(logicalH * dpr);
     ctx.scale(dpr, dpr);
 
-    const nodeCount = 22;
+    const nodeCount = 28;
     const nodes = Array.from({ length: nodeCount }, () => ({
       x: 24 + Math.random() * (logicalW - 48),
       y: 20 + Math.random() * (logicalH - 40),
@@ -504,7 +504,7 @@
       lineHot: 'rgba(96, 165, 250, 0.45)',
       node: '#60a5fa',
       glow: 'rgba(37, 99, 235, 0.35)',
-      grid: 'rgba(148, 163, 184, 0.06)',
+      grid: 'rgba(148, 163, 184, 0.05)',
     };
 
     const drawGrid = () => {
@@ -549,7 +549,7 @@
         });
       }
 
-      const maxDist = 88;
+      const maxDist = 105;
       for (let i = 0; i < nodes.length; i += 1) {
         for (let j = i + 1; j < nodes.length; j += 1) {
           const a = nodes[i];

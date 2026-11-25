@@ -1623,62 +1623,12 @@ ul, ol { list-style: none; padding: 0; }
   min-height: 0;
   align-self: center;
 }
-.contact-tech {
-  width: min(100%, 272px);
-}
-.contact-tech-shell {
-  border-radius: 14px;
-  border: 1px solid rgba(37, 99, 235, 0.22);
-  background:
-    linear-gradient(165deg, rgba(12, 18, 32, 0.98) 0%, rgba(8, 12, 22, 0.98) 100%);
-  box-shadow:
-    var(--shadow-md),
-    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-    0 16px 40px rgba(37, 99, 235, 0.1);
-  overflow: hidden;
-}
-[data-theme="dark"] .contact-tech-shell {
-  border-color: rgba(96, 165, 250, 0.28);
-  box-shadow:
-    var(--shadow-md),
-    0 0 48px rgba(88, 28, 135, 0.18),
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-}
-.contact-tech-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 12px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
-  background: rgba(255, 255, 255, 0.02);
-}
-.contact-tech-dots {
-  display: inline-flex;
-  gap: 5px;
-}
-.contact-tech-dots i {
-  display: block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgba(148, 163, 184, 0.45);
-}
-.contact-tech-dots i:nth-child(1) { background: #f87171; opacity: 0.85; }
-.contact-tech-dots i:nth-child(2) { background: #fbbf24; opacity: 0.85; }
-.contact-tech-dots i:nth-child(3) { background: #4ade80; opacity: 0.85; }
-.contact-tech-label {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(148, 163, 184, 0.92);
-}
 .contact-tech-canvas {
   display: block;
-  width: 100%;
+  width: min(100%, 400px);
   height: auto;
-  aspect-ratio: 272 / 220;
+  aspect-ratio: 400 / 340;
+  background: transparent;
 }
 /* ---------- RECOMMENDATIONS ---------- */
 .rec-layout {
