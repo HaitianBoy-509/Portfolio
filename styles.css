@@ -1624,7 +1624,7 @@ ul, ol { list-style: none; padding: 0; }
 }
 .globe-stage {
   position: relative;
-  width: min(100%, 480px);
+  width: min(100%, 340px);
   aspect-ratio: 1;
   isolation: isolate;
 }

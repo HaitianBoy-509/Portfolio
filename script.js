@@ -498,12 +498,12 @@
     }
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 20);
-    camera.position.z = 3.35;
+    const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 20);
+    camera.position.z = 5.8;
 
     const setSize = () => {
-      const w = (stage && stage.clientWidth) || 480;
-      const h = (stage && stage.clientHeight) || 480;
+      const w = (stage && stage.clientWidth) || 340;
+      const h = (stage && stage.clientHeight) || 340;
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
@@ -583,9 +583,9 @@
     });
 
     [
-      { turns: 2.6, phase: 0.35, radius: 1.16, tube: 0.062 },
-      { turns: 2.1, phase: 2.1, radius: 1.24, tube: 0.08 },
-      { turns: 3.05, phase: 4.0, radius: 1.12, tube: 0.048 },
+      { turns: 2.4, phase: 0.35, radius: 1.14, tube: 0.038 },
+      { turns: 1.9, phase: 2.1, radius: 1.2, tube: 0.05 },
+      { turns: 2.7, phase: 4.0, radius: 1.1, tube: 0.03 },
     ].forEach((cfg) => {
       const geo = new THREE.TubeGeometry(
         new SphericalHelix(cfg.radius, cfg.turns, cfg.phase),
