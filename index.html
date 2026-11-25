@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <link rel="stylesheet" href="styles.css?v=skills4" />
+  <link rel="stylesheet" href="styles.css?v=contact3" />
 </head>
 <body>
   <div class="ambient" aria-hidden="true"></div>
@@ -412,15 +412,43 @@
 
       <!-- ===== CONTACT ===== -->
       <section id="contact" class="section contact">
-          <div class="container contact-inner reveal">
-              <span class="section-num">06</span>
-              <h2 data-i18n="contact.title">Me contacter</h2>
-              <p class="contact-lead" data-i18n="contact.sub">Une question, un projet ou une opportunité ? Écrivez-moi — je vous réponds dès que possible.</p>
-              <a href="mailto:chav1301@usherbrooke.ca" class="btn btn-primary btn-lg">chav1301@usherbrooke.ca</a>
-              <div class="social-row">
-                  <a href="https://www.linkedin.com/in/vernens-charles-383ba1315" target="_blank" rel="noopener noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
-                  <span>·</span>
-                  <a href="https://github.com/HaitianBoy-509" target="_blank" rel="noopener noreferrer" data-i18n="contact.github">GitHub</a>
+          <div class="container contact-layout reveal">
+              <div class="contact-copy">
+                  <span class="section-num">06</span>
+                  <h2 data-i18n="contact.title">Me contacter</h2>
+                  <p class="contact-lead" data-i18n="contact.sub">Une question, un projet ou une opportunité ? Écrivez-moi — je vous réponds dès que possible.</p>
+                  <form class="contact-form" id="contactForm" novalidate>
+                      <div class="form-field">
+                          <label for="contactName" data-i18n="contact.nameLabel">Votre nom</label>
+                          <input type="text" id="contactName" name="name" autocomplete="name" required
+                              data-i18n-placeholder="contact.namePlaceholder" placeholder="Comment vous appelez-vous ?" />
+                      </div>
+                      <div class="form-field">
+                          <label for="contactEmail" data-i18n="contact.emailLabel">Votre e-mail</label>
+                          <input type="email" id="contactEmail" name="email" autocomplete="email" required
+                              data-i18n-placeholder="contact.emailPlaceholder" placeholder="Quelle est votre adresse e-mail ?" />
+                      </div>
+                      <div class="form-field">
+                          <label for="contactMessage" data-i18n="contact.messageLabel">Votre message</label>
+                          <textarea id="contactMessage" name="message" rows="5" required
+                              data-i18n-placeholder="contact.messagePlaceholder" placeholder="Que souhaitez-vous me dire ?"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-lg form-submit" data-i18n="contact.submit">Envoyer</button>
+                      <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
+                  </form>
+                  <div class="social-row">
+                      <a href="mailto:chav1301@usherbrooke.ca">chav1301@usherbrooke.ca</a>
+                      <span>·</span>
+                      <a href="https://www.linkedin.com/in/vernens-charles-383ba1315" target="_blank" rel="noopener noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
+                      <span>·</span>
+                      <a href="https://github.com/HaitianBoy-509" target="_blank" rel="noopener noreferrer" data-i18n="contact.github">GitHub</a>
+                  </div>
+              </div>
+              <div class="contact-visual" aria-hidden="true">
+                  <div class="globe-stage">
+                      <canvas id="globeCanvas" class="globe-canvas" width="520" height="520"></canvas>
+                      <div class="globe-fallback" id="globeFallback"></div>
+                  </div>
               </div>
           </div>
       </section>
@@ -433,6 +461,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=skills4"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="script.js?v=contact3" defer></script>
 </body>
 </html>

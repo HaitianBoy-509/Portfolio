@@ -84,6 +84,16 @@
       'cert3.badgeAlt': 'Badge Microsoft Learn — .NET MAUI',
       'contact.title': 'Me contacter',
       'contact.sub': 'Une question, un projet ou une opportunité ? Écrivez-moi — je vous réponds dès que possible.',
+      'contact.nameLabel': 'Votre nom',
+      'contact.emailLabel': 'Votre e-mail',
+      'contact.messageLabel': 'Votre message',
+      'contact.namePlaceholder': 'Comment vous appelez-vous ?',
+      'contact.emailPlaceholder': 'Quelle est votre adresse e-mail ?',
+      'contact.messagePlaceholder': 'Que souhaitez-vous me dire ?',
+      'contact.submit': 'Envoyer',
+      'contact.success': 'Merci. Votre client mail va s\'ouvrir pour envoyer le message.',
+      'contact.errorRequired': 'Veuillez remplir tous les champs.',
+      'contact.errorEmail': 'Veuillez entrer une adresse e-mail valide.',
       'contact.linkedin': 'LinkedIn',
       'contact.github': 'GitHub',
       'footer.rights': 'Tous droits réservés.',
@@ -167,6 +177,16 @@
       'cert3.badgeAlt': 'Microsoft Learn badge — .NET MAUI',
       'contact.title': 'Contact me',
       'contact.sub': 'Have a question, a project, or an opportunity? Send me an email — I will get back to you as soon as I can.',
+      'contact.nameLabel': 'Your name',
+      'contact.emailLabel': 'Your email',
+      'contact.messageLabel': 'Your message',
+      'contact.namePlaceholder': 'What is your name?',
+      'contact.emailPlaceholder': 'What is your email address?',
+      'contact.messagePlaceholder': 'What would you like to tell me?',
+      'contact.submit': 'Send',
+      'contact.success': 'Thanks! Your email client will open to send the message.',
+      'contact.errorRequired': 'Please fill in all fields.',
+      'contact.errorEmail': 'Please enter a valid email address.',
       'contact.linkedin': 'LinkedIn',
       'contact.github': 'GitHub',
       'footer.rights': 'All rights reserved.',
@@ -408,5 +428,204 @@
     setActive();
     window.addEventListener('scroll', setActive, { passive: true });
   }
+
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  const EMAIL_TO = 'chav1301@usherbrooke.ca';
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('contactName');
+      const email = document.getElementById('contactEmail');
+      const message = document.getElementById('contactMessage');
+      const fields = [name, email, message];
+      fields.forEach((el) => el.classList.remove('is-invalid'));
+
+      const showStatus = (key, isError) => {
+        if (!formStatus) return;
+        formStatus.hidden = false;
+        formStatus.textContent = t(key);
+        formStatus.style.color = isError ? '#ef4444' : 'var(--success)';
+      };
+
+      if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+        fields.forEach((el) => {
+          if (!el.value.trim()) el.classList.add('is-invalid');
+        });
+        showStatus('contact.errorRequired', true);
+        return;
+      }
+
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+      if (!emailOk) {
+        email.classList.add('is-invalid');
+        showStatus('contact.errorEmail', true);
+        return;
+      }
+
+      const subject = encodeURIComponent(`Portfolio — ${name.value.trim()}`);
+      const body = encodeURIComponent(
+        `${message.value.trim()}\n\n— ${name.value.trim()}\n${email.value.trim()}`
+      );
+      window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+      showStatus('contact.success', false);
+    });
+  }
+
+  const initContactGlobe = () => {
+    const canvas = document.getElementById('globeCanvas');
+    const stage = canvas && canvas.parentElement;
+    if (!canvas) return;
+
+    if (typeof THREE === 'undefined') return;
+
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true,
+        powerPreference: 'high-performance',
+        preserveDrawingBuffer: true,
+      });
+      renderer.setClearColor(0x000000, 0);
+      if ('outputEncoding' in renderer && THREE.sRGBEncoding) {
+        renderer.outputEncoding = THREE.sRGBEncoding;
+      }
+    } catch (err) {
+      return;
+    }
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 20);
+    camera.position.z = 3.35;
+
+    const setSize = () => {
+      const w = (stage && stage.clientWidth) || 480;
+      const h = (stage && stage.clientHeight) || 480;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    };
+    setSize();
+
+    const globeGroup = new THREE.Group();
+    scene.add(globeGroup);
+
+    scene.add(new THREE.AmbientLight(0x6b8cff, 0.55));
+    const key = new THREE.DirectionalLight(0xffffff, 1.05);
+    key.position.set(3.2, 2.2, 4);
+    scene.add(key);
+    const rim = new THREE.DirectionalLight(0x8ab4ff, 0.45);
+    rim.position.set(-3, -1, -2);
+    scene.add(rim);
+    const pink = new THREE.PointLight(0xffc4dc, 0.7, 8);
+    pink.position.set(-1.6, 1.4, 2.2);
+    scene.add(pink);
+
+    const sphereGeo = new THREE.SphereGeometry(1, 64, 64);
+    const earthMat = new THREE.MeshPhongMaterial({
+      color: 0x1b4f8a,
+      emissive: 0x041018,
+      shininess: 18,
+      specular: 0x335577,
+    });
+    const earth = new THREE.Mesh(sphereGeo, earthMat);
+    globeGroup.add(earth);
+
+    const loader = new THREE.TextureLoader();
+    loader.load(
+      'assets/earth.jpg',
+      (tex) => {
+        tex.minFilter = THREE.LinearFilter;
+        earthMat.map = tex;
+        earthMat.color.set(0xffffff);
+        earthMat.needsUpdate = true;
+      },
+      undefined,
+      () => {}
+    );
+
+    const atmos = new THREE.Mesh(
+      new THREE.SphereGeometry(1.06, 48, 48),
+      new THREE.MeshBasicMaterial({
+        color: 0x6eb6ff,
+        transparent: true,
+        opacity: 0.12,
+        side: THREE.BackSide,
+      })
+    );
+    globeGroup.add(atmos);
+
+    class SphericalHelix extends THREE.Curve {
+      constructor(radius, turns, phase) {
+        super();
+        this.radius = radius;
+        this.turns = turns;
+        this.phase = phase;
+      }
+      getPoint(t, optionalTarget = new THREE.Vector3()) {
+        const a = t * Math.PI * 2 * this.turns + this.phase;
+        const y = (t - 0.5) * 2 * this.radius * 0.92;
+        const r = Math.sqrt(Math.max(0.0001, this.radius * this.radius - y * y));
+        return optionalTarget.set(Math.cos(a) * r, y, Math.sin(a) * r);
+      }
+    }
+
+    const ribbonMat = new THREE.MeshStandardMaterial({
+      color: 0xf6d0de,
+      roughness: 0.32,
+      metalness: 0.12,
+      emissive: 0x3a1020,
+      emissiveIntensity: 0.12,
+    });
+
+    [
+      { turns: 2.6, phase: 0.35, radius: 1.16, tube: 0.062 },
+      { turns: 2.1, phase: 2.1, radius: 1.24, tube: 0.08 },
+      { turns: 3.05, phase: 4.0, radius: 1.12, tube: 0.048 },
+    ].forEach((cfg) => {
+      const geo = new THREE.TubeGeometry(
+        new SphericalHelix(cfg.radius, cfg.turns, cfg.phase),
+        180,
+        cfg.tube,
+        12,
+        false
+      );
+      globeGroup.add(new THREE.Mesh(geo, ribbonMat));
+    });
+
+    if (stage) stage.classList.add('has-webgl');
+    canvas.classList.add('is-ready');
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let visible = true;
+    const clock = new THREE.Clock();
+
+    const tick = () => {
+      requestAnimationFrame(tick);
+      if (!visible) return;
+      const dt = Math.min(clock.getDelta(), 0.05);
+      if (!reduceMotion) {
+        globeGroup.rotation.y += dt * 0.32;
+        globeGroup.rotation.x = Math.sin(clock.elapsedTime * 0.18) * 0.1;
+      }
+      renderer.render(scene, camera);
+    };
+    renderer.render(scene, camera);
+    tick();
+
+    window.addEventListener('resize', setSize);
+    if ('IntersectionObserver' in window && stage) {
+      const io = new IntersectionObserver((entries) => {
+        visible = entries.some((entry) => entry.isIntersecting);
+      }, { threshold: 0.05 });
+      io.observe(stage);
+    }
+  };
+
+  initContactGlobe();
 
 })();
