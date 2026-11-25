@@ -1431,6 +1431,10 @@ ul, ol { list-style: none; padding: 0; }
   height: 46px;
   object-fit: contain;
 }
+.skill-logo-dark { filter: none; }
+.skill-logo-flow { filter: invert(32%) sepia(98%) saturate(2000%) hue-rotate(191deg) brightness(99%) contrast(101%); }
+.skill-logo-m365 { filter: invert(42%) sepia(73%) saturate(1800%) hue-rotate(351deg) brightness(96%) contrast(92%); }
+.skill-logo-chart { filter: invert(48%) sepia(58%) saturate(1200%) hue-rotate(314deg) brightness(101%) contrast(96%); }
 .skill-badge:hover .skill-octagon,
 .skill-badge:focus-visible .skill-octagon {
   transform: translateY(-6px) rotate(-4deg) scale(1.06);
