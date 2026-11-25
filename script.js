@@ -66,7 +66,7 @@
       'proj3.alt': 'Capture d\'écran du tableau de bord AI Career',
       'proj3.githubAria': 'Voir le projet AI Career sur GitHub',
       'skills.title': 'Compétences',
-      'skills.sub': 'Outils et savoir-faire que j\'utilise au quotidien.',
+      'skills.sub': 'Outils et technologies que j\'utilise au quotidien.',
       'certifications.title': 'Certifications',
       'certifications.sub': 'Badges vérifiables que j\'ai obtenus en formation.',
       'cert.label': 'Certification',
@@ -82,14 +82,6 @@
       'cert3.title': 'Create a multi-platform app with .NET MAUI',
       'cert3.issuer': 'Microsoft',
       'cert3.badgeAlt': 'Badge Microsoft Learn — .NET MAUI',
-      'skills.technical': 'Techniques',
-      'skills.tools': 'Outils',
-      'skills.soft': 'Transverses et langues',
-      'skills.htmlCss': 'HTML et CSS',
-      'skills.csharp': 'C# et .NET MAUI',
-      'skills.git': 'Git et GitHub',
-      'skills.teamwork': 'Travail d\'équipe',
-      'skills.communication': 'Communication',
       'contact.title': 'Me contacter',
       'contact.sub': 'Une question, un projet ou une opportunité ? Écrivez-moi — je vous réponds dès que possible.',
       'contact.linkedin': 'LinkedIn',
@@ -157,7 +149,7 @@
       'proj3.alt': 'Screenshot of the AI Career dashboard',
       'proj3.githubAria': 'View the AI Career project on GitHub',
       'skills.title': 'Skills',
-      'skills.sub': 'Tools and expertise I use day to day.',
+      'skills.sub': 'Tools and technologies I use day to day.',
       'certifications.title': 'Certifications',
       'certifications.sub': 'Verifiable badges earned through training.',
       'cert.label': 'Certification',
@@ -173,14 +165,6 @@
       'cert3.title': 'Create a multi-platform app with .NET MAUI',
       'cert3.issuer': 'Microsoft',
       'cert3.badgeAlt': 'Microsoft Learn badge — .NET MAUI',
-      'skills.technical': 'Technical',
-      'skills.tools': 'Tools',
-      'skills.soft': 'Soft skills and languages',
-      'skills.htmlCss': 'HTML and CSS',
-      'skills.csharp': 'C# and .NET MAUI',
-      'skills.git': 'Git and GitHub',
-      'skills.teamwork': 'Teamwork',
-      'skills.communication': 'Communication',
       'contact.title': 'Contact me',
       'contact.sub': 'Have a question, a project, or an opportunity? Send me an email — I will get back to you as soon as I can.',
       'contact.linkedin': 'LinkedIn',
@@ -338,19 +322,34 @@
     document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
   }
 
-  // Barres de compétences
-  const skillObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          skillObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-  document.querySelectorAll('.skill-group').forEach((el) => skillObserver.observe(el));
+  // Icônes de compétences : lumières au clic
+  const spawnSkillSparks = (badge) => {
+    if (prefersReducedMotion) return;
+    const rect = badge.getBoundingClientRect();
+    const count = 10;
+    for (let i = 0; i < count; i += 1) {
+      const spark = document.createElement('span');
+      spark.className = 'skill-spark';
+      const angle = (Math.PI * 2 * i) / count;
+      const dist = 28 + Math.random() * 26;
+      spark.style.left = `${rect.width / 2 - 3}px`;
+      spark.style.top = `${rect.height / 2 - 3}px`;
+      spark.style.setProperty('--sx', `${Math.cos(angle) * dist}px`);
+      spark.style.setProperty('--sy', `${Math.sin(angle) * dist}px`);
+      badge.appendChild(spark);
+      spark.addEventListener('animationend', () => spark.remove());
+    }
+  };
+
+  document.querySelectorAll('.skill-badge').forEach((badge) => {
+    badge.addEventListener('click', () => {
+      badge.classList.remove('is-lit');
+      void badge.offsetWidth;
+      badge.classList.add('is-lit');
+      spawnSkillSparks(badge);
+      window.setTimeout(() => badge.classList.remove('is-lit'), 700);
+    });
+  });
 
   // Parallaxe portrait
   if (portrait && !prefersReducedMotion) {

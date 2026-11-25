@@ -273,42 +273,99 @@
               <div class="section-header reveal">
                   <span class="section-num">04</span>
                   <h2 data-i18n="skills.title">Compétences</h2>
-                  <p class="section-sub" data-i18n="skills.sub">Outils et savoir-faire que j'utilise au quotidien.</p>
+                  <p class="section-sub" data-i18n="skills.sub">Outils et technologies que j'utilise au quotidien.</p>
               </div>
 
-              <div class="skills-grid">
-                  <div class="skill-group reveal">
-                      <h3 data-i18n="skills.technical">Techniques</h3>
-                      <ul class="skill-list">
-                          <li><span data-i18n="skills.htmlCss">HTML et CSS</span><div class="bar"><i style="--lvl:85%"></i></div></li>
-                          <li><span>JavaScript</span><div class="bar"><i style="--lvl:75%"></i></div></li>
-                          <li><span data-i18n="skills.csharp">C# et .NET MAUI</span><div class="bar"><i style="--lvl:80%"></i></div></li>
-                          <li><span>SQL</span><div class="bar"><i style="--lvl:70%"></i></div></li>
-                      </ul>
-                  </div>
-
-                  <div class="skill-group reveal">
-                      <h3 data-i18n="skills.tools">Outils</h3>
-                      <ul class="skill-list">
-                          <li><span data-i18n="skills.git">Git et GitHub</span><div class="bar"><i style="--lvl:80%"></i></div></li>
-                          <li><span>Power Automate</span><div class="bar"><i style="--lvl:75%"></i></div></li>
-                          <li><span>Microsoft 365</span><div class="bar"><i style="--lvl:80%"></i></div></li>
-                          <li><span>VS Code</span><div class="bar"><i style="--lvl:85%"></i></div></li>
-                      </ul>
-                  </div>
-
-                  <div class="skill-group reveal">
-                      <h3 data-i18n="skills.soft">Transverses et langues</h3>
-                      <ul class="skill-list">
-                          <li><span>UI/UX</span><div class="bar"><i style="--lvl:85%"></i></div></li>
-                          <li><span data-i18n="skills.teamwork">Travail d'équipe</span><div class="bar"><i style="--lvl:90%"></i></div></li>
-                          <li><span data-i18n="skills.communication">Communication</span><div class="bar"><i style="--lvl:85%"></i></div></li>
-                          <li><span>Créole</span><div class="bar"><i style="--lvl:100%"></i></div></li>
-                          <li><span>Français</span><div class="bar"><i style="--lvl:100%"></i></div></li>
-                          <li><span>Anglais</span><div class="bar"><i style="--lvl:80%"></i></div></li>
-                      </ul>
-                  </div>
-              </div>
+              <ul class="skills-icons reveal" id="skillsIcons">
+                  <li class="skill-icon" style="--i:0">
+                      <button type="button" class="skill-badge" aria-label="HTML">
+                          <span class="skill-octagon">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" />
+                          </span>
+                      </button>
+                      <span class="skill-name">HTML</span>
+                  </li>
+                  <li class="skill-icon" style="--i:1">
+                      <button type="button" class="skill-badge" aria-label="CSS">
+                          <span class="skill-octagon">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" />
+                          </span>
+                      </button>
+                      <span class="skill-name">CSS</span>
+                  </li>
+                  <li class="skill-icon" style="--i:2">
+                      <button type="button" class="skill-badge" aria-label="JavaScript">
+                          <span class="skill-octagon">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" />
+                          </span>
+                      </button>
+                      <span class="skill-name">JavaScript</span>
+                  </li>
+                  <li class="skill-icon" style="--i:3">
+                      <button type="button" class="skill-badge" aria-label="C#">
+                          <span class="skill-octagon">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="" />
+                          </span>
+                      </button>
+                      <span class="skill-name">C#</span>
+                  </li>
+                  <li class="skill-icon" style="--i:4">
+                      <button type="button" class="skill-badge" aria-label=".NET MAUI">
+                          <span class="skill-octagon">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" alt="" />
+                          </span>
+                      </button>
+                      <span class="skill-name">.NET MAUI</span>
+                  </li>
+                  <li class="skill-icon" style="--i:5">
+                      <button type="button" class="skill-badge" aria-label="SQL">
+                          <span class="skill-octagon">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" />
+                          </span>
+                      </button>
+                      <span class="skill-name">SQL</span>
+                  </li>
+                  <li class="skill-icon" style="--i:6">
+                      <button type="button" class="skill-badge" aria-label="Git">
+                          <span class="skill-octagon">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" />
+                          </span>
+                      </button>
+                      <span class="skill-name">Git</span>
+                  </li>
+                  <li class="skill-icon" style="--i:7">
+                      <button type="button" class="skill-badge" aria-label="GitHub">
+                          <span class="skill-octagon">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" />
+                          </span>
+                      </button>
+                      <span class="skill-name">GitHub</span>
+                  </li>
+                  <li class="skill-icon" style="--i:8">
+                      <button type="button" class="skill-badge" aria-label="Power Automate">
+                          <span class="skill-octagon">
+                              <img src="https://cdn.simpleicons.org/microsoftpowerautomate/0066FF" alt="" />
+                          </span>
+                      </button>
+                      <span class="skill-name">Power Automate</span>
+                  </li>
+                  <li class="skill-icon" style="--i:9">
+                      <button type="button" class="skill-badge" aria-label="Microsoft 365">
+                          <span class="skill-octagon">
+                              <img src="https://cdn.simpleicons.org/microsoft365/D83B01" alt="" />
+                          </span>
+                      </button>
+                      <span class="skill-name">Microsoft 365</span>
+                  </li>
+                  <li class="skill-icon" style="--i:10">
+                      <button type="button" class="skill-badge" aria-label="VS Code">
+                          <span class="skill-octagon">
+                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" />
+                          </span>
+                      </button>
+                      <span class="skill-name">VS Code</span>
+                  </li>
+              </ul>
           </div>
       </section>
 
@@ -433,6 +490,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2023"></script>
+  <script src="script.js?v=skills1"></script>
 </body>
 </html>
