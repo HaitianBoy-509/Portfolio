@@ -19,7 +19,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2023" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <link rel="stylesheet" href="styles.css?v=2024" />
 </head>
 <body>
   <div class="ambient" aria-hidden="true"></div>
@@ -273,42 +274,41 @@
               <div class="section-header reveal">
                   <span class="section-num">04</span>
                   <h2 data-i18n="skills.title">Compétences</h2>
-                  <p class="section-sub" data-i18n="skills.sub">Outils et savoir-faire que j'utilise au quotidien.</p>
+                  <p class="section-sub" data-i18n="skills.sub">Outils et technologies que j'utilise au quotidien.</p>
               </div>
 
-              <div class="skills-grid">
-                  <div class="skill-group reveal">
-                      <h3 data-i18n="skills.technical">Techniques</h3>
-                      <ul class="skill-list">
-                          <li><span data-i18n="skills.htmlCss">HTML et CSS</span><div class="bar"><i style="--lvl:85%"></i></div></li>
-                          <li><span>JavaScript</span><div class="bar"><i style="--lvl:75%"></i></div></li>
-                          <li><span data-i18n="skills.csharp">C# et .NET MAUI</span><div class="bar"><i style="--lvl:80%"></i></div></li>
-                          <li><span>SQL</span><div class="bar"><i style="--lvl:70%"></i></div></li>
-                      </ul>
-                  </div>
-
-                  <div class="skill-group reveal">
-                      <h3 data-i18n="skills.tools">Outils</h3>
-                      <ul class="skill-list">
-                          <li><span data-i18n="skills.git">Git et GitHub</span><div class="bar"><i style="--lvl:80%"></i></div></li>
-                          <li><span>Power Automate</span><div class="bar"><i style="--lvl:75%"></i></div></li>
-                          <li><span>Microsoft 365</span><div class="bar"><i style="--lvl:80%"></i></div></li>
-                          <li><span>VS Code</span><div class="bar"><i style="--lvl:85%"></i></div></li>
-                      </ul>
-                  </div>
-
-                  <div class="skill-group reveal">
-                      <h3 data-i18n="skills.soft">Transverses et langues</h3>
-                      <ul class="skill-list">
-                          <li><span>UI/UX</span><div class="bar"><i style="--lvl:85%"></i></div></li>
-                          <li><span data-i18n="skills.teamwork">Travail d'équipe</span><div class="bar"><i style="--lvl:90%"></i></div></li>
-                          <li><span data-i18n="skills.communication">Communication</span><div class="bar"><i style="--lvl:85%"></i></div></li>
-                          <li><span>Créole</span><div class="bar"><i style="--lvl:100%"></i></div></li>
-                          <li><span>Français</span><div class="bar"><i style="--lvl:100%"></i></div></li>
-                          <li><span>Anglais</span><div class="bar"><i style="--lvl:80%"></i></div></li>
-                      </ul>
-                  </div>
-              </div>
+              <ul class="skills-icons reveal" id="skillsIcons">
+                  <li class="skill-icon" style="--i:0"><button type="button" class="skill-badge" aria-label="HTML"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" /></span></button><span class="skill-name">HTML</span></li>
+                  <li class="skill-icon" style="--i:1"><button type="button" class="skill-badge" aria-label="CSS"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" /></span></button><span class="skill-name">CSS</span></li>
+                  <li class="skill-icon" style="--i:2"><button type="button" class="skill-badge" aria-label="JavaScript"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" /></span></button><span class="skill-name">JavaScript</span></li>
+                  <li class="skill-icon" style="--i:3"><button type="button" class="skill-badge" aria-label="Python"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="" /></span></button><span class="skill-name">Python</span></li>
+                  <li class="skill-icon" style="--i:4"><button type="button" class="skill-badge" aria-label="Java"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="" /></span></button><span class="skill-name">Java</span></li>
+                  <li class="skill-icon" style="--i:5"><button type="button" class="skill-badge" aria-label="PHP"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="" /></span></button><span class="skill-name">PHP</span></li>
+                  <li class="skill-icon" style="--i:6"><button type="button" class="skill-badge" aria-label="Symfony"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/symfony/symfony-original.svg" alt="" /></span></button><span class="skill-name">Symfony</span></li>
+                  <li class="skill-icon" style="--i:7"><button type="button" class="skill-badge" aria-label="Composer"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/composer/composer-original.svg" alt="" /></span></button><span class="skill-name">Composer</span></li>
+                  <li class="skill-icon" style="--i:8"><button type="button" class="skill-badge" aria-label="Bash"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="" /></span></button><span class="skill-name">Bash</span></li>
+                  <li class="skill-icon" style="--i:9"><button type="button" class="skill-badge" aria-label="C#"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="" /></span></button><span class="skill-name">C#</span></li>
+                  <li class="skill-icon" style="--i:10"><button type="button" class="skill-badge" aria-label=".NET MAUI"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" alt="" /></span></button><span class="skill-name">.NET MAUI</span></li>
+                  <li class="skill-icon" style="--i:11"><button type="button" class="skill-badge" aria-label="React"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="" /></span></button><span class="skill-name">React</span></li>
+                  <li class="skill-icon" style="--i:12"><button type="button" class="skill-badge" aria-label="Node.js"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="" /></span></button><span class="skill-name">Node.js</span></li>
+                  <li class="skill-icon" style="--i:13"><button type="button" class="skill-badge" aria-label="Three.js"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg" alt="" /></span></button><span class="skill-name">Three.js</span></li>
+                  <li class="skill-icon" style="--i:14"><button type="button" class="skill-badge" aria-label="A-Frame"><span class="skill-octagon"><img src="assets/skills/aframe.svg" alt="" class="skill-logo-dark" /></span></button><span class="skill-name">A-Frame</span></li>
+                  <li class="skill-icon" style="--i:15"><button type="button" class="skill-badge" aria-label="SQL"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" alt="" /></span></button><span class="skill-name">SQL</span></li>
+                  <li class="skill-icon" style="--i:16"><button type="button" class="skill-badge" aria-label="MySQL"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" /></span></button><span class="skill-name">MySQL</span></li>
+                  <li class="skill-icon" style="--i:17"><button type="button" class="skill-badge" aria-label="MongoDB"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="" /></span></button><span class="skill-name">MongoDB</span></li>
+                  <li class="skill-icon" style="--i:18"><button type="button" class="skill-badge" aria-label="Git"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" /></span></button><span class="skill-name">Git</span></li>
+                  <li class="skill-icon" style="--i:19"><button type="button" class="skill-badge" aria-label="GitHub"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" /></span></button><span class="skill-name">GitHub</span></li>
+                  <li class="skill-icon" style="--i:20"><button type="button" class="skill-badge" aria-label="Docker"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="" /></span></button><span class="skill-name">Docker</span></li>
+                  <li class="skill-icon" style="--i:21"><button type="button" class="skill-badge" aria-label="Postman"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="" /></span></button><span class="skill-name">Postman</span></li>
+                  <li class="skill-icon" style="--i:22"><button type="button" class="skill-badge" aria-label="AWS"><span class="skill-octagon"><img src="assets/skills/aws.svg" alt="" /></span></button><span class="skill-name">AWS</span></li>
+                  <li class="skill-icon" style="--i:23"><button type="button" class="skill-badge" aria-label="Tailwind CSS"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="" /></span></button><span class="skill-name">Tailwind CSS</span></li>
+                  <li class="skill-icon" style="--i:24"><button type="button" class="skill-badge" aria-label="Bootstrap"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="" /></span></button><span class="skill-name">Bootstrap</span></li>
+                  <li class="skill-icon" style="--i:25"><button type="button" class="skill-badge" aria-label="Chart.js"><span class="skill-octagon"><img src="assets/skills/chartjs.svg" alt="" class="skill-logo-chart" /></span></button><span class="skill-name">Chart.js</span></li>
+                  <li class="skill-icon" style="--i:26"><button type="button" class="skill-badge" aria-label="WordPress"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-original.svg" alt="" /></span></button><span class="skill-name">WordPress</span></li>
+                  <li class="skill-icon" style="--i:27"><button type="button" class="skill-badge" aria-label="VS Code"><span class="skill-octagon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" /></span></button><span class="skill-name">VS Code</span></li>
+                  <li class="skill-icon" style="--i:28"><button type="button" class="skill-badge" aria-label="Power Automate"><span class="skill-octagon"><img src="assets/skills/power-automate.svg" alt="" /></span></button><span class="skill-name">Power Automate</span></li>
+                  <li class="skill-icon" style="--i:29"><button type="button" class="skill-badge" aria-label="Microsoft 365"><span class="skill-octagon"><img src="assets/skills/microsoft365.svg" alt="" /></span></button><span class="skill-name">Microsoft 365</span></li>
+              </ul>
           </div>
       </section>
 
@@ -412,15 +412,48 @@
 
       <!-- ===== CONTACT ===== -->
       <section id="contact" class="section contact">
-          <div class="container contact-inner reveal">
-              <span class="section-num">06</span>
-              <h2 data-i18n="contact.title">Me contacter</h2>
-              <p class="contact-lead" data-i18n="contact.sub">Une question, un projet ou une opportunité ? Écrivez-moi — je vous réponds dès que possible.</p>
-              <a href="mailto:chav1301@usherbrooke.ca" class="btn btn-primary btn-lg">chav1301@usherbrooke.ca</a>
-              <div class="social-row">
-                  <a href="https://www.linkedin.com/in/vernens-charles-383ba1315" target="_blank" rel="noopener noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
-                  <span>·</span>
-                  <a href="https://github.com/HaitianBoy-509" target="_blank" rel="noopener noreferrer" data-i18n="contact.github">GitHub</a>
+          <div class="container contact-layout reveal">
+              <div class="contact-copy">
+                  <span class="section-num">06</span>
+                  <h2 data-i18n="contact.title">Me contacter</h2>
+                  <p class="contact-lead" data-i18n="contact.sub">Une question, un projet ou une opportunité ? Écrivez-moi — je vous réponds dès que possible.</p>
+                  <form class="contact-form" id="contactForm" novalidate>
+                      <div class="form-field">
+                          <label for="contactName" data-i18n="contact.nameLabel">Votre nom</label>
+                          <input type="text" id="contactName" name="name" autocomplete="name" required
+                              data-i18n-placeholder="contact.namePlaceholder" placeholder="Comment vous appelez-vous ?" />
+                      </div>
+                      <div class="form-field">
+                          <label for="contactEmail" data-i18n="contact.emailLabel">Votre e-mail</label>
+                          <input type="email" id="contactEmail" name="email" autocomplete="email" required
+                              data-i18n-placeholder="contact.emailPlaceholder" placeholder="Quelle est votre adresse e-mail ?" />
+                      </div>
+                      <div class="form-field">
+                          <label for="contactMessage" data-i18n="contact.messageLabel">Votre message</label>
+                          <textarea id="contactMessage" name="message" rows="5" required
+                              data-i18n-placeholder="contact.messagePlaceholder" placeholder="Que souhaitez-vous me dire ?"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-lg form-submit" data-i18n="contact.submit">Envoyer</button>
+                      <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
+                  </form>
+                  <div class="social-row">
+                      <a href="mailto:chav1301@usherbrooke.ca">chav1301@usherbrooke.ca</a>
+                      <span>·</span>
+                      <a href="https://www.linkedin.com/in/vernens-charles-383ba1315" target="_blank" rel="noopener noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
+                      <span>·</span>
+                      <a href="https://github.com/HaitianBoy-509" target="_blank" rel="noopener noreferrer" data-i18n="contact.github">GitHub</a>
+                  </div>
+              </div>
+              <div class="contact-visual" aria-hidden="true">
+                  <div class="contact-tech">
+                      <div class="contact-tech-shell">
+                          <div class="contact-tech-bar">
+                              <span class="contact-tech-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                              <span class="contact-tech-label" data-i18n="contact.techLabel">Réseau actif</span>
+                          </div>
+                          <canvas id="contactTechCanvas" class="contact-tech-canvas" width="272" height="220"></canvas>
+                      </div>
+                  </div>
               </div>
           </div>
       </section>
@@ -433,6 +466,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2023"></script>
+  <script src="script.js?v=2024" defer></script>
 </body>
 </html>

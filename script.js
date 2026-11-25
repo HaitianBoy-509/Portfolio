@@ -66,7 +66,7 @@
       'proj3.alt': 'Capture d\'écran du tableau de bord AI Career',
       'proj3.githubAria': 'Voir le projet AI Career sur GitHub',
       'skills.title': 'Compétences',
-      'skills.sub': 'Outils et savoir-faire que j\'utilise au quotidien.',
+      'skills.sub': 'Outils et technologies que j\'utilise au quotidien.',
       'certifications.title': 'Certifications',
       'certifications.sub': 'Badges vérifiables que j\'ai obtenus en formation.',
       'cert.label': 'Certification',
@@ -82,16 +82,19 @@
       'cert3.title': 'Create a multi-platform app with .NET MAUI',
       'cert3.issuer': 'Microsoft',
       'cert3.badgeAlt': 'Badge Microsoft Learn — .NET MAUI',
-      'skills.technical': 'Techniques',
-      'skills.tools': 'Outils',
-      'skills.soft': 'Transverses et langues',
-      'skills.htmlCss': 'HTML et CSS',
-      'skills.csharp': 'C# et .NET MAUI',
-      'skills.git': 'Git et GitHub',
-      'skills.teamwork': 'Travail d\'équipe',
-      'skills.communication': 'Communication',
       'contact.title': 'Me contacter',
       'contact.sub': 'Une question, un projet ou une opportunité ? Écrivez-moi — je vous réponds dès que possible.',
+      'contact.nameLabel': 'Votre nom',
+      'contact.emailLabel': 'Votre e-mail',
+      'contact.messageLabel': 'Votre message',
+      'contact.namePlaceholder': 'Comment vous appelez-vous ?',
+      'contact.emailPlaceholder': 'Quelle est votre adresse e-mail ?',
+      'contact.messagePlaceholder': 'Que souhaitez-vous me dire ?',
+      'contact.submit': 'Envoyer',
+      'contact.techLabel': 'Réseau actif',
+      'contact.success': 'Merci. Votre client mail va s\'ouvrir pour envoyer le message.',
+      'contact.errorRequired': 'Veuillez remplir tous les champs.',
+      'contact.errorEmail': 'Veuillez entrer une adresse e-mail valide.',
       'contact.linkedin': 'LinkedIn',
       'contact.github': 'GitHub',
       'footer.rights': 'Tous droits réservés.',
@@ -157,7 +160,7 @@
       'proj3.alt': 'Screenshot of the AI Career dashboard',
       'proj3.githubAria': 'View the AI Career project on GitHub',
       'skills.title': 'Skills',
-      'skills.sub': 'Tools and expertise I use day to day.',
+      'skills.sub': 'Tools and technologies I use day to day.',
       'certifications.title': 'Certifications',
       'certifications.sub': 'Verifiable badges earned through training.',
       'cert.label': 'Certification',
@@ -173,16 +176,19 @@
       'cert3.title': 'Create a multi-platform app with .NET MAUI',
       'cert3.issuer': 'Microsoft',
       'cert3.badgeAlt': 'Microsoft Learn badge — .NET MAUI',
-      'skills.technical': 'Technical',
-      'skills.tools': 'Tools',
-      'skills.soft': 'Soft skills and languages',
-      'skills.htmlCss': 'HTML and CSS',
-      'skills.csharp': 'C# and .NET MAUI',
-      'skills.git': 'Git and GitHub',
-      'skills.teamwork': 'Teamwork',
-      'skills.communication': 'Communication',
       'contact.title': 'Contact me',
       'contact.sub': 'Have a question, a project, or an opportunity? Send me an email — I will get back to you as soon as I can.',
+      'contact.nameLabel': 'Your name',
+      'contact.emailLabel': 'Your email',
+      'contact.messageLabel': 'Your message',
+      'contact.namePlaceholder': 'What is your name?',
+      'contact.emailPlaceholder': 'What is your email address?',
+      'contact.messagePlaceholder': 'What would you like to tell me?',
+      'contact.submit': 'Send',
+      'contact.techLabel': 'Live network',
+      'contact.success': 'Thanks! Your email client will open to send the message.',
+      'contact.errorRequired': 'Please fill in all fields.',
+      'contact.errorEmail': 'Please enter a valid email address.',
       'contact.linkedin': 'LinkedIn',
       'contact.github': 'GitHub',
       'footer.rights': 'All rights reserved.',
@@ -338,19 +344,34 @@
     document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
   }
 
-  // Barres de compétences
-  const skillObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          skillObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-  document.querySelectorAll('.skill-group').forEach((el) => skillObserver.observe(el));
+  // Icônes de compétences : lumières au clic
+  const spawnSkillSparks = (badge) => {
+    if (prefersReducedMotion) return;
+    const rect = badge.getBoundingClientRect();
+    const count = 10;
+    for (let i = 0; i < count; i += 1) {
+      const spark = document.createElement('span');
+      spark.className = 'skill-spark';
+      const angle = (Math.PI * 2 * i) / count;
+      const dist = 28 + Math.random() * 26;
+      spark.style.left = `${rect.width / 2 - 3}px`;
+      spark.style.top = `${rect.height / 2 - 3}px`;
+      spark.style.setProperty('--sx', `${Math.cos(angle) * dist}px`);
+      spark.style.setProperty('--sy', `${Math.sin(angle) * dist}px`);
+      badge.appendChild(spark);
+      spark.addEventListener('animationend', () => spark.remove());
+    }
+  };
+
+  document.querySelectorAll('.skill-badge').forEach((badge) => {
+    badge.addEventListener('click', () => {
+      badge.classList.remove('is-lit');
+      void badge.offsetWidth;
+      badge.classList.add('is-lit');
+      spawnSkillSparks(badge);
+      window.setTimeout(() => badge.classList.remove('is-lit'), 700);
+    });
+  });
 
   // Parallaxe portrait
   if (portrait && !prefersReducedMotion) {
@@ -409,5 +430,189 @@
     setActive();
     window.addEventListener('scroll', setActive, { passive: true });
   }
+
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  const EMAIL_TO = 'chav1301@usherbrooke.ca';
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('contactName');
+      const email = document.getElementById('contactEmail');
+      const message = document.getElementById('contactMessage');
+      const fields = [name, email, message];
+      fields.forEach((el) => el.classList.remove('is-invalid'));
+
+      const showStatus = (key, isError) => {
+        if (!formStatus) return;
+        formStatus.hidden = false;
+        formStatus.textContent = t(key);
+        formStatus.style.color = isError ? '#ef4444' : 'var(--success)';
+      };
+
+      if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+        fields.forEach((el) => {
+          if (!el.value.trim()) el.classList.add('is-invalid');
+        });
+        showStatus('contact.errorRequired', true);
+        return;
+      }
+
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+      if (!emailOk) {
+        email.classList.add('is-invalid');
+        showStatus('contact.errorEmail', true);
+        return;
+      }
+
+      const subject = encodeURIComponent(`Portfolio — ${name.value.trim()}`);
+      const body = encodeURIComponent(
+        `${message.value.trim()}\n\n— ${name.value.trim()}\n${email.value.trim()}`
+      );
+      window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+      showStatus('contact.success', false);
+    });
+  }
+
+  const initContactTech = () => {
+    const canvas = document.getElementById('contactTechCanvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const logicalW = 272;
+    const logicalH = 220;
+    canvas.width = Math.floor(logicalW * dpr);
+    canvas.height = Math.floor(logicalH * dpr);
+    ctx.scale(dpr, dpr);
+
+    const nodeCount = 22;
+    const nodes = Array.from({ length: nodeCount }, () => ({
+      x: 24 + Math.random() * (logicalW - 48),
+      y: 20 + Math.random() * (logicalH - 40),
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      pulse: Math.random() * Math.PI * 2,
+    }));
+
+  const palette = {
+      line: 'rgba(56, 189, 248, 0.22)',
+      lineHot: 'rgba(96, 165, 250, 0.45)',
+      node: '#60a5fa',
+      glow: 'rgba(37, 99, 235, 0.35)',
+      grid: 'rgba(148, 163, 184, 0.06)',
+    };
+
+    const drawGrid = () => {
+      const step = 22;
+      ctx.strokeStyle = palette.grid;
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= logicalW; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, logicalH);
+        ctx.stroke();
+      }
+      for (let y = 0; y <= logicalH; y += step) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(logicalW, y);
+        ctx.stroke();
+      }
+    };
+
+    let visible = true;
+    let rafId = 0;
+    let t0 = performance.now();
+
+    const draw = (now) => {
+      rafId = requestAnimationFrame(draw);
+      if (!visible) return;
+
+      const dt = Math.min((now - t0) / 1000, 0.05);
+      t0 = now;
+
+      ctx.clearRect(0, 0, logicalW, logicalH);
+      drawGrid();
+
+      if (!reduceMotion) {
+        nodes.forEach((n) => {
+          n.x += n.vx * dt * 60;
+          n.y += n.vy * dt * 60;
+          if (n.x < 16 || n.x > logicalW - 16) n.vx *= -1;
+          if (n.y < 14 || n.y > logicalH - 14) n.vy *= -1;
+          n.pulse += dt * 2.4;
+        });
+      }
+
+      const maxDist = 88;
+      for (let i = 0; i < nodes.length; i += 1) {
+        for (let j = i + 1; j < nodes.length; j += 1) {
+          const a = nodes[i];
+          const b = nodes[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist > maxDist) continue;
+          const alpha = 1 - dist / maxDist;
+          ctx.strokeStyle = alpha > 0.55 ? palette.lineHot : palette.line;
+          ctx.lineWidth = alpha > 0.55 ? 1.15 : 0.8;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+
+      nodes.forEach((n) => {
+        const r = 2.2 + (reduceMotion ? 0 : Math.sin(n.pulse) * 0.55);
+        const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 4);
+        grad.addColorStop(0, palette.glow);
+        grad.addColorStop(1, 'transparent');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, r * 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = palette.node;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      if (!reduceMotion) {
+        const hop = nodes[Math.floor((now / 900) % nodes.length)];
+        const hop2 = nodes[(Math.floor(now / 900) + 5) % nodes.length];
+        ctx.strokeStyle = 'rgba(125, 211, 252, 0.65)';
+        ctx.lineWidth = 1.4;
+        ctx.setLineDash([4, 6]);
+        ctx.beginPath();
+        ctx.moveTo(hop.x, hop.y);
+        ctx.lineTo(hop2.x, hop2.y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    };
+
+    rafId = requestAnimationFrame(draw);
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        visible = entries.some((e) => e.isIntersecting);
+        if (visible) t0 = performance.now();
+      }, { threshold: 0.08 });
+      io.observe(canvas);
+    }
+
+    window.addEventListener('beforeunload', () => {
+      if (rafId) cancelAnimationFrame(rafId);
+    });
+  };
+
+  initContactTech();
 
 })();
