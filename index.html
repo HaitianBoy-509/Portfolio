@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2021" />
+  <link rel="stylesheet" href="styles.css?v=2022" />
 </head>
 <body>
   <div class="ambient" aria-hidden="true"></div>
@@ -224,44 +224,46 @@
                   <p class="section-sub" data-i18n="projects.sub">Quelques réalisations qui illustrent ce que je sais faire.</p>
               </div>
 
-              <p class="projects-lead reveal" data-i18n="projects.lead">Projet phare — une application concrète pour les candidatures de stage.</p>
-
-              <article class="project-feature reveal">
-                  <div class="project-feature-media">
-                      <div class="project-thumb project-thumb--feature">
-                          <img src="assets/projet-ai-career.png"
-                               alt="Capture d'écran du tableau de bord AI Career"
-                               data-i18n-alt="proj3.alt"
-                               loading="lazy"
-                               decoding="async"
-                               width="960"
-                               height="600" />
-                      </div>
-                  </div>
-                  <div class="project-feature-body">
-                      <div class="project-feature-head">
-                          <span class="project-tag" data-i18n="proj3.tag">Personnel · Août 2026</span>
-                          <h3 class="project-feature-title">AI Career</h3>
-                      </div>
-                      <p class="project-feature-desc" data-i18n="proj3.desc">
-                          Plateforme web destinée aux étudiants pour optimiser leurs candidatures de stage.
-                          Elle permet d'analyser et d'adapter un CV selon une offre, de générer des lettres
-                          de motivation ciblées, et de suivre les indicateurs clés (score ATS, taux de correspondance).
-                      </p>
-                      <div class="project-feature-stack">
-                          <span class="project-stack-label" data-i18n="projects.stack">Technologies</span>
-                          <ul class="chip-list chip-list--project">
-                              <li>React</li>
-                              <li>TypeScript</li>
-                              <li>Node.js</li>
-                              <li>UI/UX</li>
-                          </ul>
-                      </div>
-                      <div class="project-feature-actions">
-                          <a href="https://github.com/HaitianBoy-509/Ai-Career_Assistant" class="btn btn-ghost project-feature-btn" target="_blank" rel="noopener noreferrer" data-i18n="proj.link">Voir sur GitHub →</a>
-                      </div>
-                  </div>
-              </article>
+              <ul class="projects-showcase">
+                  <li class="reveal">
+                      <article class="project-panel">
+                          <div class="project-panel-visual">
+                              <div class="project-device" aria-hidden="true">
+                                  <div class="project-device-screen">
+                                      <img src="assets/projet-ai-career.png"
+                                           data-i18n-alt="proj3.alt"
+                                           alt="Capture d'écran du tableau de bord AI Career"
+                                           loading="lazy"
+                                           decoding="async"
+                                           width="640"
+                                           height="400" />
+                                  </div>
+                                  <div class="project-device-chin">
+                                      <span class="project-device-dot"></span>
+                                  </div>
+                                  <span class="project-device-stand"></span>
+                              </div>
+                              <a href="https://github.com/HaitianBoy-509/Ai-Career_Assistant"
+                                 class="project-github"
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                                 data-i18n-aria="proj3.githubAria">
+                                  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                                  </svg>
+                              </a>
+                          </div>
+                          <div class="project-panel-copy">
+                              <h3 class="project-panel-title" data-i18n="proj3.title">AI Career</h3>
+                              <p class="project-panel-desc" data-i18n="proj3.desc">
+                                  Plateforme web destinée aux étudiants pour optimiser leurs candidatures de stage.
+                                  Elle permet d'analyser et d'adapter un CV selon une offre, de générer des lettres
+                                  de motivation ciblées, et de suivre les indicateurs clés (score ATS, taux de correspondance).
+                              </p>
+                          </div>
+                      </article>
+                  </li>
+              </ul>
           </div>
       </section>
 
@@ -431,6 +433,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2021"></script>
+  <script src="script.js?v=2022"></script>
 </body>
 </html>
